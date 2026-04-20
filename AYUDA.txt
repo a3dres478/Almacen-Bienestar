@@ -1,0 +1,255 @@
+================================================================================
+INDICE DE DOCUMENTACION - LEE SEGUN TU NECESIDAD
+================================================================================
+
+¿QUÉ NECESITAS HACER AHORA?
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ OPCION A: "Quiero empezar YA"                                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 1. Lee: RESUMEN_FINAL.txt (este documento)                                  │
+│ 2. Ejecuta: INSTALAR.bat                                                    │
+│ 3. Ejecuta: INICIAR.bat                                                     │
+│ 4. ¡Usa la aplicación!                                                      │
+│ Tiempo estimado: 5-10 minutos                                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ OPCION B: "Quiero entender cómo funciona"                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 1. Lee: RESUMEN_FINAL.txt                                                   │
+│ 2. Lee: GUIA_INICIO.txt                                                     │
+│ 3. Lee: ARQUITECTURA.txt                                                    │
+│ 4. Explora el código                                                        │
+│ Tiempo estimado: 30-60 minutos                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ OPCION C: "Quiero crear un ejecutable para distribuir"                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 1. Lee: PORTABLE_GUIDE.txt                                                  │
+│ 2. Ejecuta: CREAR_EJECUTABLE.bat                                            │
+│ 3. Encontrarás: dist/GestorAlmacenes.exe                                    │
+│ 4. Distribuye el .exe                                                       │
+│ Tiempo estimado: 5-10 minutos (+ 2-3 min de build)                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ OPCION D: "Quiero agregar el logo del cocodrilo"                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 1. Lee: LOGO_Y_PORTABLE.txt                                                 │
+│ 2. Coloca logo.png en la carpeta App (o ejecuta convertir_logo.py)          │
+│ 3. Ejecuta: INICIAR.bat                                                     │
+│ 4. ¡Verás el logo en el encabezado verde!                                   │
+│ Tiempo estimado: 2-5 minutos                                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ OPCION F: "Quiero probar las nuevas funcionalidades v2.1"                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 1. Lee: PRUEBA_RAPIDA.txt (guía paso a paso)                                │
+│ 2. Ejecuta: INICIAR.bat                                                     │
+│ 3. Sigue las instrucciones de prueba                                        │
+│ Tiempo estimado: 5-10 minutos                                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+│ 2. Lee: RESUMEN_FINAL.txt (apartado "Limitaciones")                         │
+│ 3. Intenta: INSTALAR.bat de nuevo                                           │
+│ 4. Si persiste: Revisa las rutas y permisos de archivos                     │
+│ Tiempo estimado: 5-15 minutos                                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+────────────────────────────────────────────────────────────────────────────────
+
+GUIA COMPLETA DE ARCHIVOS DE AYUDA
+
+📄 RESUMEN_FINAL.txt
+   Qué es:       Resumen ejecutivo de toda la aplicación
+   Leer si:      Acabas de descargar la app y quieres entender todo
+   Tiempo:       5-10 minutos
+   Contenido:    Estructura, funcionalidades, cómo empezar, ejemplos
+
+📄 INICIO.txt
+   Qué es:       Instrucciones rápidas de inicio
+   Leer si:      Quieres empezar inmediatamente
+   Tiempo:       2-3 minutos
+   Contenido:    Pasos básicos, primeras acciones
+
+📄 GUIA_INICIO.txt
+   Qué es:       Guía completa de usuario
+   Leer si:      Necesitas detalles sobre cómo usar cada función
+   Tiempo:       15-30 minutos
+   Contenido:    Uso de todas las pestañas, ejemplos, troubleshooting
+
+📄 PORTABLE_GUIDE.txt
+   Qué es:       Guía para crear ejecutable portable
+   Leer si:      Quieres distribuir la app sin que otros instalen Python
+   Tiempo:       10-20 minutos
+   Contenido:    Cómo crear .exe, cómo distribuir, ventajas
+
+📄 LOGO_Y_PORTABLE.txt
+   Qué es:       Integración del logo
+   Leer si:      Tienes el logo y quieres ponerlo en la interfaz
+   Tiempo:       5-10 minutos
+   Contenido:    Cómo agregar logo, formatos soportados
+
+📄 ARQUITECTURA.txt
+   Qué es:       Documentación técnica
+   Leer si:      Eres desarrollador y quieres entender el código
+   Tiempo:       20-40 minutos
+   Contenido:    Estructura de código, base de datos, mejoras posibles
+
+📄 README.md
+   Qué es:       Documentación técnica completa
+   Leer si:      Necesitas referencia completa de todas las funciones
+   Tiempo:       30-60 minutos
+   Contenido:    Instalación, uso, estructura, troubleshooting
+
+📄 AYUDA.txt (este archivo)
+   Qué es:       Índice de documentación
+   Leer si:      No sabes qué leer primero
+   Tiempo:       2-3 minutos
+   Contenido:    Guía de qué leer según tu necesidad
+
+────────────────────────────────────────────────────────────────────────────────
+
+TIPO DE USUARIO - ENCUENTRA EL TUYO
+
+┌─ USUARIO CASUAL ─────────────────────────────────────────────────────────┐
+│ "Solo quiero abrir y usar la aplicación"                                 │
+│                                                                            │
+│ Lee:     INICIO.txt                                                      │
+│ Ejecuta: INSTALAR.bat → INICIAR.bat                                     │
+│ ¡Listo!                                                                  │
+│                                                                            │
+│ Tiempo total: 10 minutos                                                │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌─ USUARIO INTERESADO ─────────────────────────────────────────────────────┐
+│ "Quiero saber qué puedo hacer exactamente"                              │
+│                                                                            │
+│ Lee en orden:                                                             │
+│ 1. RESUMEN_FINAL.txt (estructura general)                               │
+│ 2. GUIA_INICIO.txt (funcionalidades detalladas)                         │
+│ 3. Prueba la app                                                         │
+│                                                                            │
+│ Tiempo total: 30-40 minutos                                             │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌─ USUARIO EMPRESARIAL ────────────────────────────────────────────────────┐
+│ "Quiero distribuir esto a mis empleados"                                │
+│                                                                            │
+│ Lee en orden:                                                             │
+│ 1. RESUMEN_FINAL.txt                                                    │
+│ 2. PORTABLE_GUIDE.txt (crear ejecutable)                                │
+│ 3. LOGO_Y_PORTABLE.txt (agregar branding)                              │
+│ 4. Crea el ejecutable con CREAR_EJECUTABLE.bat                         │
+│ 5. Distribuye GestorAlmacenes.exe                                      │
+│                                                                            │
+│ Tiempo total: 30-60 minutos                                             │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌─ DESARROLLADOR/TÉCNICO ──────────────────────────────────────────────────┐
+│ "Quiero entender el código y modificarlo"                               │
+│                                                                            │
+│ Lee en orden:                                                             │
+│ 1. ARQUITECTURA.txt (estructura del proyecto)                          │
+│ 2. README.md (documentación completa)                                  │
+│ 3. Abre los archivos .py en VS Code                                    │
+│ 4. database.py (lógica de datos)                                       │
+│ 5. main.py (interfaz gráfica)                                          │
+│                                                                            │
+│ Tiempo total: 1-2 horas                                                │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌─ USUARIO CON PROBLEMAS ──────────────────────────────────────────────────┐
+│ "Algo no funciona"                                                      │
+│                                                                            │
+│ Sigue estos pasos:                                                       │
+│ 1. Lee: GUIA_INICIO.txt → Troubleshooting                             │
+│ 2. Lee: RESUMEN_FINAL.txt → Limitaciones                              │
+│ 3. Ejecuta: INSTALAR.bat (reinstala dependencias)                     │
+│ 4. Intenta: INICIAR.bat nuevamente                                    │
+│ 5. Verifica: Que Python esté en PATH (python --version)              │
+│                                                                            │
+│ Si persiste: Haz screenshot del error y describe qué hacías            │
+└────────────────────────────────────────────────────────────────────────────┘
+
+────────────────────────────────────────────────────────────────────────────────
+
+TABLA RAPIDA DE REFERENCIA
+
+Acción                         Archivo                    Tiempo
+─────────────────────────────  ────────────────           ──────
+Empezar ahora                  INICIO.txt                 5 min
+Entender funcionalidades       GUIA_INICIO.txt            30 min
+Crear ejecutable               CREAR_EJECUTABLE.bat       5+3 min
+Agregar logo                   convertir_logo.py          5 min
+Entender arquitectura          ARQUITECTURA.txt           30 min
+Troubleshooting errores        GUIA_INICIO.txt + google   15 min
+Documentación técnica          README.md                  60 min
+Resumen general                RESUMEN_FINAL.txt          10 min
+
+────────────────────────────────────────────────────────────────────────────────
+
+FLUJO RECOMENDADO PARA NUEVOS USUARIOS
+
+1. LEER (2 minutos)
+   └─ Este archivo (AYUDA.txt)
+   
+2. LEER (5 minutos)
+   └─ RESUMEN_FINAL.txt
+   
+3. INSTALAR (5 minutos)
+   └─ Doble click en INSTALAR.bat
+   
+4. EJECUTAR (2 minutos)
+   └─ Doble click en INICIAR.bat
+   
+5. USAR (variable)
+   └─ Empieza a agregar productos
+   
+6. LEER (15 minutos si necesitas más info)
+   └─ GUIA_INICIO.txt (cómo usar cada función)
+
+TIEMPO TOTAL: 30 minutos para estar operacional
+           60 minutos para ser experto
+
+────────────────────────────────────────────────────────────────────────────────
+
+INFORMACION DE CONTACTO Y SOPORTE
+
+Si tienes preguntas o problemas:
+
+1. Verifica que hayas seguido los pasos correctamente
+2. Lee la sección Troubleshooting de GUIA_INICIO.txt
+3. Verifica que Python esté correctamente instalado
+4. Ejecuta INSTALAR.bat para reinstalar dependencias
+5. Si el problema persiste, documenta:
+   - ¿Qué intentaste hacer?
+   - ¿Qué error recibiste? (captura de pantalla)
+   - ¿Qué sistema operativo usas?
+
+Información técnica útil:
+  - Versión de Python: python --version
+  - Paquetes instalados: pip list
+  - Error exacto: copia el mensaje completo
+
+────────────────────────────────────────────────────────────────────────────────
+
+RESUMEN FINAL
+
+Este es tu mapa de documentación. Según lo que necesites:
+
+✓ "Quiero usar" → Lee INICIO.txt
+✓ "¿Cómo funciona?" → Lee RESUMEN_FINAL.txt  
+✓ "Quiero detalles" → Lee GUIA_INICIO.txt
+✓ "Quiero distribuir" → Lee PORTABLE_GUIDE.txt
+✓ "Tengo un logo" → Lee LOGO_Y_PORTABLE.txt
+✓ "Soy desarrollador" → Lee ARQUITECTURA.txt + README.md
+✓ "Tengo un error" → Lee GUIA_INICIO.txt Troubleshooting
+
+¡No necesitas leer todo! Solo lee lo que necesites.
+
+================================================================================
+¡Bienvenido a Gestor de Almacenes!
+================================================================================

@@ -1,0 +1,134 @@
+================================================================================
+                    CAMBIOS REALIZADOS - CORRECCIONES
+                         17 de Abril de 2026
+================================================================================
+
+RESUMEN DE CAMBIOS
+================================================================================
+
+1. ✅ COMBOBOX FILTRABLE EN MOVIMIENTOS
+   - Cambio: Entrada de producto ahora es un Combobox en lugar de Entry + Listbox
+   - Funcionalidad: 
+     * Muestra todos los productos disponibles al hacer clic
+     * Permite scrollear la lista
+     * A medida que escribes, la lista se reduce dinámicamente
+     * Combina funcionalidad de DDL + búsqueda en tiempo real
+   - Ubicación: Pestaña "↔️ Movimientos" - Campo "Producto"
+   - Beneficio: Más fácil de usar, visual más limpio
+
+2. ✅ LÓGICA DE DUPLICADOS REVISADA
+   - Cambio: Cuando se detecta un producto similar
+   - Comportamiento:
+     * Si presiona "SÍ": Redirige a movimientos (como antes)
+     * Si presiona "NO": NO agrega el producto, mantiene la información en los campos
+     * Antes: No había retroalimentación clara al presionar "No"
+     * Ahora: Mensaje de confirmación al cancelar
+   - Ubicación: Función _agregar_producto() en main.py
+   - Beneficio: Mayor control del usuario, sin perdida de datos
+
+3. ✅ EXCEL LIMPIADO
+   - Cambio: Base de datos Excel limpia para nuevas pruebas
+   - Acciones realizadas:
+     * ✅ Eliminada hoja "Reportes"
+     * ✅ Hoja "Productos" - Datos eliminados, encabezados mantenidos
+     * ✅ Hoja "Movimientos" - Datos eliminados, encabezados mantenidos
+   - Ubicación: data/almacen.xlsx
+   - Estado: Base de datos lista para pruebas desde cero
+
+4. ✅ SCRIPT DE LIMPIEZA
+   - Nuevo archivo: limpiar_excel.py
+   - Uso: python limpiar_excel.py
+   - Función: Automatiza la limpieza de la BD (elimina datos, mantiene estructura)
+   - Beneficio: Rápida limpieza cuando necesites reiniciar pruebas
+
+
+DETALLES TÉCNICOS
+================================================================================
+
+COMBOBOX FILTRABLE - CÓMO FUNCIONA:
+- Campo: combo_producto (Combobox)
+- Evento: KeyRelease (cuando escribes)
+- Función: _filtrar_combo_productos()
+- Lógica:
+  1. Al escribir, captura el texto
+  2. Filtra lista completa por ese texto
+  3. Actualiza valores del combobox en tiempo real
+  4. Si vacío, muestra todos los productos
+
+DETECCIÓN DE DUPLICADOS:
+- Similitud >= 80% = Se considera duplicado
+- Si detecta:
+  * Opción 1 (SÍ): Redirige a Movimientos + preselecciona producto
+  * Opción 2 (NO): Cancela adición, mantiene datos en formulario
+- Formato del mensaje: Claro y explicativo
+
+LIMPIEZA EXCEL:
+- Mantiene: Estructura de hojas, encabezados, formateo
+- Elimina: Todos los datos de filas
+- Elimina: Hoja "Reportes" completa
+- Resultado: Base de datos limpia pero funcional
+
+
+ARCHIVOS MODIFICADOS
+================================================================================
+
+main.py:
+- _crear_pestana_movimientos() - Cambio Entry+Listbox a Combobox
+- _filtrar_combo_productos() - Nueva función para filtrado dinámico
+- _registrar_movimiento() - Actualizado para usar combo_producto
+- _actualizar_lista_productos() - Actualiza combo_producto
+- _agregar_producto() - Lógica revisada para duplicados
+
+database.py:
+- Sin cambios (ya tenía funciones de similitud)
+
+Nuevo archivo:
+- limpiar_excel.py - Script para limpiar la BD
+
+
+CÓMO USAR LOS CAMBIOS
+================================================================================
+
+PARA USAR EL COMBOBOX FILTRABLE:
+1. Abre la pestaña "↔️ Movimientos"
+2. En el campo "Producto", haz clic para ver todos
+3. Escribe para filtrar (busca por ID o nombre)
+4. Selecciona de la lista desplegable
+
+PARA DETECTAR DUPLICADOS:
+1. Intenta agregar un producto similar a uno existente
+2. Si se detecta, verás el diálogo
+3. Presiona "SÍ" para ir a movimientos
+4. Presiona "NO" para cancelar (datos se mantienen)
+
+PARA LIMPIAR LA BD:
+Opción 1 - Automática (recomendada):
+1. Abre línea de comandos en la carpeta del programa
+2. Ejecuta: python limpiar_excel.py
+3. Listo - BD limpia
+
+Opción 2 - Manual:
+1. Abre data/almacen.xlsx en Excel
+2. Elimina filas de datos (mantén encabezados)
+3. Elimina hoja "Reportes"
+4. Guarda
+
+
+VALIDACIÓN
+================================================================================
+
+✅ Código compila sin errores
+✅ Excel limpiado correctamente
+✅ Estructura mantenida
+✅ Encabezados intactos
+✅ Lógica de fuzzy matching funciona
+
+LISTO PARA PRUEBAS ✅
+================================================================================
+
+La aplicación está lista para nuevas pruebas con:
+- Combobox filtrable mejorado
+- Lógica de duplicados más clara
+- Base de datos limpia y lista
+
+¡A PROBAR! 🎯

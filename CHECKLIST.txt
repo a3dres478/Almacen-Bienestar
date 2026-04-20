@@ -1,0 +1,243 @@
+================================================================================
+CHECKLIST DE INSTALACION - VERIFICAR QUE TODO FUNCIONA
+================================================================================
+
+Sigue esta lista para asegurar que tu Gestor de Almacenes está listo:
+
+PASO 1: VERIFICACION PRE-INSTALACION
+─────────────────────────────────────────────────────────────────────────────
+□ Tengo Python instalado (versión 3.7 o superior)
+  → Verifica: Abre Command Prompt y escribe: python --version
+  
+□ Python está en PATH (puedo escribir "python" en Command Prompt)
+  → Verifica: python --version debe funcionar desde cualquier carpeta
+  
+□ Tengo permisos de escritura en la carpeta App
+  → Verifica: Puedo crear archivos en C:\Users\david\OneDrive\Desktop\TRABAJO\BC\App\
+  
+□ He descargado todos los archivos de la aplicación
+  → Verifica: main.py, database.py, INICIAR.bat, INSTALAR.bat existen
+
+PASO 2: INSTALACION DE DEPENDENCIAS
+─────────────────────────────────────────────────────────────────────────────
+□ Ejecuté INSTALAR.bat sin errores
+  1. Haz doble click en INSTALAR.bat
+  2. Espera a que diga "Instalacion completada exitosamente"
+  3. Presiona Enter para cerrar
+
+□ Openpyxl está instalado
+  → Verifica: Abre Command Prompt y escribe: pip show openpyxl
+  
+□ Pillow está instalado (opcional, para logo)
+  → Verifica: pip show Pillow
+
+PASO 3: PRUEBA DE APLICACION
+─────────────────────────────────────────────────────────────────────────────
+□ Ejecuté INICIAR.bat sin errores
+  → Abre la ventana de la aplicación
+  → La interfaz debería ser VERDE
+  
+□ Veo el encabezado verde oscuro
+  → Deberías ver: "GESTOR DE ALMACENES" en blanco sobre fondo verde
+  
+□ Las pestañas son verdes
+  → Debería haber 5 pestañas: Productos, Movimientos, Historial, Reportes, Importar/Exportar
+  
+□ Puedo ver el formulario de Productos
+  → Deberías ver campos para completar
+
+□ El archivo data/almacen.xlsx se creó
+  → Verifica: Existe el archivo data/almacen.xlsx
+
+□ Puedo agregar un producto de prueba
+  1. Completa los campos
+  2. Click "Agregar Producto"
+  3. Deberías ver un mensaje de éxito
+
+□ Puedo ver el producto en la lista
+  → El producto que agregaste debe aparecer en la tabla
+
+PASO 4: FUNCIONALIDAD BASICA
+─────────────────────────────────────────────────────────────────────────────
+□ Puedo registrar un movimiento
+  1. Ve a pestaña Movimientos
+  2. Selecciona el producto
+  3. Elige tipo "Entrada"
+  4. Ingresa cantidad, motivo, responsable
+  5. Click "Registrar Movimiento"
+  
+□ El stock se actualiza automáticamente
+  → Vuelve a Productos y verifica que el stock cambió
+
+□ Puedo ver el historial
+  1. Ve a pestaña Historial
+  2. Deberías ver el movimiento que registraste
+  
+□ Puedo generar un reporte
+  1. Ve a pestaña Reportes
+  2. Click "Generar Reporte Completo"
+  3. Debería mostrar un resumen
+
+PASO 5: VERIFICACION AVANZADA (OPCIONAL)
+─────────────────────────────────────────────────────────────────────────────
+□ Puedo descargar plantilla
+  1. Pestaña Importar/Exportar
+  2. Click "Descargar Plantilla"
+  3. Se guarda un archivo Excel
+  
+□ Puedo exportar datos
+  1. Pestaña Reportes
+  2. Click "Exportar a Excel"
+  3. Se guarda una copia de los datos
+
+□ El logo se muestra (si existe logo.png)
+  → Debería haber una imagen de cocodrilo en el encabezado
+
+PASO 6: CREAR EJECUTABLE (SI DESEAS)
+─────────────────────────────────────────────────────────────────────────────
+□ Ejecuté CREAR_EJECUTABLE.bat
+  → Tardará 2-3 minutos
+  
+□ Se creó dist/GestorAlmacenes.exe
+  → Verifica que el archivo existe y tiene ~100-150 MB
+
+□ Puedo ejecutar GestorAlmacenes.exe
+  → Haz doble click en el .exe
+  → Debería abrir la aplicación
+  
+□ PyInstaller se instaló correctamente
+  → Si CREAR_EJECUTABLE.bat falló, ejecuta: pip install pyinstaller
+
+PASO 7: VERIFICACION FINAL
+─────────────────────────────────────────────────────────────────────────────
+□ Todos los elementos son VERDES (no azules ni grises)
+  → Interfaz debería estar en tonos verdes cohesivos
+
+□ No hay mensajes de error al abrir
+  → Si hay errores, lee GUIA_INICIO.txt Troubleshooting
+
+□ Puedo navegar entre las 5 pestañas sin problemas
+  → Todas las pestañas deberían cargar sin errores
+
+□ Los datos se guardan (cierra y abre nuevamente)
+  1. Cierra INICIAR.bat
+  2. Abre nuevamente INICIAR.bat
+  3. Tus productos deberían estar aún allí
+
+✓ ¡LISTA COMPLETADA! 
+
+Si todas las casillas están marcadas, tu aplicación funciona perfectamente.
+
+================================================================================
+SOLUCION RAPIDA DE PROBLEMAS
+================================================================================
+
+PROBLEMA                          SOLUCION
+─────────────────────────────────────────────────────────────────────────────
+La interfaz es azul, no verde    → Reinicia INSTALAR.bat, luego INICIAR.bat
+
+No puedo ejecutar INSTALAR.bat   → Abre como administrador (click derecho)
+
+Dice "Python no encontrado"       → Instala Python de python.org
+                                  → Marca "Add Python to PATH"
+                                  → Reinicia la computadora
+
+Dice "openpyxl no encontrado"    → Ejecuta: pip install openpyxl
+
+No se ve el logo                 → Coloca logo.png en la carpeta App
+                                  → O ejecuta convertir_logo.py
+
+¿Dónde guardo logo.png?          → En: C:\Users\david\OneDrive\Desktop\TRABAJO\BC\App\
+                                  → Junto a main.py y database.py
+
+CREAR_EJECUTABLE.bat no funciona → Abre Command Prompt y ejecuta: pip install pyinstaller
+
+El .exe es muy grande            → Normal, PyInstaller empaqueta Python completo
+
+El .exe tarda en abrir           → Normal la primera vez, luego es más rápido
+
+Los datos no se guardan          → Cierra Excel si tenías almacen.xlsx abierto
+                                  → Reinicia la aplicación
+
+================================================================================
+LISTA DE VERIFICACION RAPIDA (2 MINUTOS)
+================================================================================
+
+☑ Python instalado y en PATH
+  Comando: python --version
+
+☑ Ejecuté INSTALAR.bat sin errores
+  El terminal dijo "Instalacion completada"
+
+☑ Ejecuté INICIAR.bat sin errores
+  Se abrió la ventana verde
+
+☑ Agregué un producto de prueba
+  El producto aparece en la tabla
+
+☑ Registré un movimiento de prueba
+  El stock se actualizó
+
+¿Todos verificados? → ¡Tu aplicación funciona perfectamente!
+
+================================================================================
+PASOS POST-INSTALACION
+================================================================================
+
+Ahora que está todo funcionando:
+
+1. AGREGA TUS PRODUCTOS
+   - Ve a Productos
+   - Completa la información
+   - Click "Agregar Producto"
+
+2. REGISTRA MOVIMIENTOS
+   - Ve a Movimientos
+   - Selecciona producto
+   - Registra entradas y salidas
+
+3. HAZA BACKUP REGULARMENTE
+   - Copia data/almacen.xlsx a otro lugar
+   - Hazlo una vez por semana
+
+4. GENERA REPORTES PERIÓDICOS
+   - Mensualmente crea un reporte
+   - Exporta a Excel
+   - Guarda con fecha: Reporte_Abril_2026.xlsx
+
+5. (OPCIONAL) CREA EJECUTABLE
+   - Si quieres distribuir sin Python
+   - Ejecuta CREAR_EJECUTABLE.bat
+   - Distribuye GestorAlmacenes.exe
+
+================================================================================
+COMO SABER QUE ALGO ESTA MAL
+================================================================================
+
+SEÑALES DE ALERTA:
+  ✗ El programa no abre
+  ✗ Aparece ventana de error
+  ✗ La interfaz está en otro color (no verde)
+  ✗ No puedo escribir en los campos
+  ✗ Los datos no se guardan
+  ✗ Aparecen errores en la consola
+
+COMO DIAGNOSTICAR:
+  1. Lee GUIA_INICIO.txt (Troubleshooting)
+  2. Ejecuta INSTALAR.bat nuevamente
+  3. Verifica python --version
+  4. Verifica pip list (que openpyxl esté)
+  5. Si persiste, documenta el error exacto
+
+================================================================================
+VERSION DE ESTE CHECKLIST
+================================================================================
+
+Versión: 2.0
+Fecha: Abril 2026
+Estado: Completo
+
+Este checklist verifica todos los aspectos de la instalación.
+Si sigues todos los pasos y marcas todas las casillas, tu aplicación está lista.
+
+================================================================================

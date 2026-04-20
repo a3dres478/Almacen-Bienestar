@@ -1,0 +1,500 @@
+================================================================================
+                    GESTOR DE ALMACENES - MANUAL SIMPLE
+                         Para: Señor Julito
+================================================================================
+
+TABLA DE CONTENIDOS
+================================================================================
+1. Primeros pasos e instalación
+2. Cómo iniciar la aplicación
+3. Las 5 pestañas principales
+4. Cómo ver detalles de productos
+5. Cambios recientes
+6. Errores comunes
+7. Consejos útiles
+8. Preguntas frecuentes
+9. Mantenimiento de datos
+10. Contacto y soporte
+
+
+PRIMEROS PASOS E INSTALACIÓN
+================================================================================
+
+¿QUÉ CARPETA NECESITO?
+La carpeta debe contener:
+- Archivo: INICIAR.bat (para abrir el sistema)
+- Archivo: main.py (programa principal)
+- Archivo: database.py (base de datos)
+- Carpeta: data/ (contiene almacen.xlsx)
+
+IMPORTANTE:
+✓ NO debes mover ni cambiar el nombre de estos archivos
+✓ NO debes cambiar la carpeta de lugar
+✓ Mantén TODO junto en la misma ubicación
+
+
+CÓMO CREAR UN ACCESO DIRECTO EN EL ESCRITORIO
+================================================================================
+Para iniciar más rápido desde el escritorio:
+
+OPCIÓN 1 - Crear acceso directo manualmente:
+1. Ve a la carpeta donde está INICIAR.bat
+2. Haz clic DERECHO sobre INICIAR.bat
+3. Selecciona "Enviar a" → "Escritorio (crear acceso directo)"
+4. Listo - Ahora tienes un acceso en el escritorio
+5. Doble clic en ese acceso para abrir el programa
+
+OPCIÓN 2 - Usar el archivo CREAR_ACCESO_DIRECTO.bat:
+1. En la carpeta principal, haz doble clic en: CREAR_ACCESO_DIRECTO.bat
+2. Se crea automáticamente un acceso en el escritorio
+3. Listo para usar
+
+
+REQUISITOS DEL SISTEMA
+================================================================================
+Tu PC debe tener:
+✓ Windows 7 o superior
+✓ Python 3.7 o superior instalado
+✓ Al menos 500 MB de espacio libre
+✓ Internet (opcional, solo para ver imágenes de productos)
+
+
+CÓMO INICIAR LA APLICACIÓN
+================================================================================
+
+OPCIÓN 1 - Desde la carpeta:
+1. Abre la carpeta del Gestor de Almacenes
+2. Haz doble clic en el archivo: INICIAR.bat
+3. Se abrirá la ventana automáticamente
+4. ¡Listo! Ya puedes empezar
+
+OPCIÓN 2 - Desde el escritorio (si creaste acceso directo):
+1. Haz doble clic en el acceso directo del escritorio
+2. Se abrirá la aplicación automáticamente
+
+OPCIÓN 3 - Si nada abre (emergencia):
+1. Abre una línea de comandos (cmd.exe)
+2. Ve a la carpeta del programa
+3. Escribe: python main.py
+4. Presiona Enter
+
+NOTA: Es normal que tarde 2-3 segundos en abrir la primera vez
+
+
+PESTAÑA 1: AGREGAR PRODUCTOS (📦 Productos)
+================================================================================
+¿Qué hacer aquí?
+- Agregar nuevos productos al almacén
+
+PASOS:
+1. Rellena los campos:
+   - Nombre: Nombre del producto (Ej: Tijeras, Destornillador)
+   - Descripción: Detalles del producto (Ej: Color rojo, tamaño grande)
+   - Stock Inicial: Cantidad que tienes ahora (Ej: 10)
+   - Unidad Medida: Selecciona una opción:
+     * Unidades (para cosas individuales)
+     * Kg (para cosas que pesas)
+     * Otro (para otras medidas)
+   - URL Imagen (opcional): Link de imagen del producto
+
+2. Haz clic en "✅ Agregar Producto"
+
+3. Si el sistema detecta un producto muy parecido:
+   - Te preguntará si quieres crear uno nuevo o registrar movimiento en el existente
+   - Si es el mismo producto, haz clic en SÍ → va directamente a Movimientos
+
+IMPORTANTE:
+- Los nombres se formatean automáticamente (Ej: "tijeras" → "Tijeras")
+- Los nombres con mayúsculas/minúsculas se normalizan
+
+
+PESTAÑA 2: REGISTRAR MOVIMIENTOS (➕➖ Movimientos)
+================================================================================
+¿Qué hacer aquí?
+- Registrar entradas (cuando compras) o salidas (cuando vendes/usas) de productos
+
+PASOS:
+1. Selecciona el producto:
+   - En "Seleccionar Producto" elige de la lista (Ej: "1 - Tijeras")
+
+2. Elige el tipo de movimiento:
+   - "Entrada" = Acabas de recibir/comprar el producto
+   - "Salida" = Vendiste/usaste el producto
+
+3. Ingresa la cantidad:
+   - Número entero sin decimales (Ej: 5, 10, 100)
+   - OBLIGATORIO: Debe ser mayor a 0
+
+4. Ingresa el motivo:
+   - Por qué entra o sale (Ej: "Compra a proveedor", "Venta cliente XYZ")
+   - OBLIGATORIO: No puede estar vacío
+
+5. Ingresa el responsable:
+   - Tu nombre o quien hizo el movimiento (Ej: "Julito", "Juan")
+   - Puede estar vacío si no quieres completarlo
+
+6. Haz clic en "✅ Registrar"
+
+EJEMPLO:
+- Producto: 1 - Tijeras
+- Tipo: Entrada
+- Cantidad: 50
+- Motivo: Compra a proveedor ABC
+- Responsable: Julito
+→ Resultado: Se suman 50 tijeras al stock
+
+
+PESTAÑA 3: VER HISTORIAL (📋 Historial)
+================================================================================
+¿Qué hacer aquí?
+- Ver todos los movimientos que hiciste (entradas y salidas)
+
+OPCIÓN 1 - Ver movimientos de UN PRODUCTO:
+1. En "Seleccionar Producto", elige el producto
+2. Haz clic en "🔍 Ver Historial"
+3. Verás solo los movimientos de ese producto
+
+OPCIÓN 2 - Ver TODOS los movimientos:
+1. Haz clic en "🔄 Todos"
+2. Verás todo el historial completo
+
+OPCIÓN 3 - Buscar por RANGO DE FECHAS:
+1. En "Buscar por Rango de Fechas", completa:
+   - Desde: Fecha inicial (formato: DD/MM/YYYY - Ej: 01/01/2025)
+   - Hasta: Fecha final (formato: DD/MM/YYYY - Ej: 31/12/2026)
+2. Haz clic en "🔎 Buscar por Fecha"
+3. Verás solo los movimientos en ese rango
+
+EJEMPLO:
+- Desde: 01/04/2026
+- Hasta: 17/04/2026
+- Resultado: Todos los movimientos de abril 2026
+
+QUÉ VES EN LA TABLA:
+- Fecha: Cuándo se hizo el movimiento
+- Mes/Año: Mes y año del movimiento
+- Tipo: Entrada o Salida
+- Producto: Nombre del producto
+- Cantidad: Cuántas unidades entraron/salieron
+- Stock Anterior: Stock antes del movimiento
+- Stock Nuevo: Stock después del movimiento
+- Motivo: Por qué se hizo
+- Responsable: Quién lo registró
+
+
+PESTAÑA 4: GENERAR REPORTES (📊 Reportes)
+================================================================================
+¿Qué hacer aquí?
+- Ver resumen total del almacén
+- Exportar datos a Excel
+
+OPCIÓN 1 - Ver reporte en pantalla:
+1. Haz clic en "📊 Ver Reporte"
+2. Verás el resumen completo:
+   - Total de productos
+   - Total de movimientos
+   - Detalles de cada producto
+
+OPCIÓN 2 - Descargar plantilla para cargar productos:
+1. Haz clic en "📥 Descargar Plantilla"
+2. Te pide dónde guardar el archivo
+3. Completa el Excel con los productos
+4. Importa el archivo desde la pestaña "Importar"
+
+OPCIÓN 3 - Exportar todo a Excel:
+1. Haz clic en "💾 Exportar a Excel"
+2. Te pide dónde guardar el archivo
+3. Se descarga una copia de la BD con todos los datos
+
+
+PESTAÑA 5: IMPORTAR DATOS (📥 Importar)
+================================================================================
+¿Qué hacer aquí?
+- Cargar muchos productos de una vez desde Excel
+
+PASOS:
+1. Haz clic en "📥 Descargar Plantilla" en la pestaña Reportes
+2. Completa el Excel con tus productos
+3. Vuelve a esta pestaña (Importar)
+4. Haz clic en "Seleccionar Archivo"
+5. Elige el Excel que completaste
+6. Haz clic en "📥 Importar"
+7. Listo - Los productos se agregarán al sistema
+
+
+VER DETALLES DE UN PRODUCTO
+================================================================================
+En la pestaña "📦 Productos":
+- Haz DOBLE CLIC en cualquier producto de la lista
+- Se abrirá una ventana con todos los detalles:
+  * ID
+  * Nombre
+  * Descripción
+  * Stock actual
+  * Unidad de medida
+  * Fecha de creación
+  * URL de la imagen (si tiene)
+  * Botón para ver la imagen en internet
+
+
+CAMBIOS RECIENTES (IMPORTANTE)
+================================================================================
+✅ Se REMOVIÓ el campo "Precio Unitario"
+   - Ya NO se registra precio de productos
+   - Ya NO aparece en la lista
+
+✅ Las unidades ahora son DDL (dropdown):
+   - Unidades (cosas individuales)
+   - Kg (cosas que pesas)
+   - Otro (otras medidas)
+
+✅ Nombres se formatean automáticamente:
+   - "PRODUCTO" → "Producto"
+   - "producto" → "Producto"
+
+✅ Se detectan productos duplicados:
+   - Si agregas un producto muy parecido a uno existente, te preguntará
+   - Opción para registrar movimiento en el producto existente
+
+✅ Se limpió el historial:
+   - Se borraron todos los movimientos anteriores a 17 de abril de 2026
+   - Ahora tienes historial limpio para el año 2026
+
+✅ Nueva búsqueda por fechas:
+   - Puedes filtrar movimientos por rango de fechas
+   - Formato: DD/MM/YYYY
+
+
+ERRORES COMUNES Y SOLUCIONES
+================================================================================
+❌ "Debe seleccionar producto y tipo de movimiento"
+   → Asegúrate de seleccionar un producto y elegir Entrada o Salida
+
+❌ "La cantidad debe ser un número entero mayor a 0"
+   → Ingresa solo números sin decimales, y que sea mayor a 0
+   → Ej: Está bien "5", no está bien "5.5" o "0"
+
+❌ "El motivo es obligatorio"
+   → Completa el campo "Motivo" antes de registrar
+
+❌ "El nombre del producto es obligatorio"
+   → Rellena el campo "Nombre" al agregar un producto
+
+❌ "Error al conectar a la base de datos"
+   → Cierra el programa y vuelve a abrirlo
+   → Si persiste, verifica que el archivo "almacen.xlsx" esté en la carpeta "data"
+
+
+CONSEJOS ÚTILES
+================================================================================
+✓ Siempre completa el campo "Motivo" para saber por qué hiciste cada movimiento
+✓ Usa "Responsable" para saber quién registró cada movimiento
+✓ Revisa el historial regularmente para verificar los stocks
+✓ La búsqueda por fechas es útil para auditorías mensuales
+✓ Guarda copias de los reportes en caso de problemas
+✓ Si agregás un producto por error, contacta al administrador
+
+
+CONTACTO Y SOPORTE
+================================================================================
+Si tienes problemas o dudas:
+1. Revisa este manual nuevamente
+2. Verifica que todos los campos estén completos
+3. Contacta al administrador del sistema
+
+¡Gracias por usar el Gestor de Almacenes! 🎯
+
+================================================================================
+PREGUNTAS FRECUENTES
+================================================================================
+
+P: ¿Puedo usar el programa sin internet?
+R: SÍ. El programa funciona completamente sin internet. 
+   Internet solo es necesario si quieres ver imágenes de los productos.
+
+P: ¿Dónde se guardan mis datos?
+R: En la carpeta llamada "data" dentro de la carpeta del programa.
+   El archivo se llama "almacen.xlsx" (es un Excel).
+
+P: ¿Qué pasa si cierro el programa sin guardar?
+R: Los datos se guardan AUTOMÁTICAMENTE. No necesitas hacer nada especial.
+   Cada movimiento se guarda inmediatamente.
+
+P: ¿Puedo cambiar o eliminar un producto?
+R: Por ahora NO. El sistema no permite editar ni eliminar.
+   Si cometiste un error, contacta al administrador.
+
+P: ¿Cuántos productos puedo agregar?
+R: Sin límite. El sistema puede manejar miles de productos.
+
+P: ¿Qué hago si se congela el programa?
+R: Ciérralo y vuelve a abrir. Los datos están guardados.
+   Si sigue congelado, reinicia tu PC.
+
+P: ¿Puedo ver el historial completo desde el principio?
+R: No. Se limpió el historial anterior a abril 2026.
+   Ahora tienes historial limpio desde el 17 de abril de 2026.
+
+P: ¿Cómo hago un respaldo de mis datos?
+R: Ve a la pestaña "Reportes" → "Exportar a Excel"
+   Eso crea una copia de tu base de datos.
+
+P: ¿Puedo trabajar varias personas a la vez?
+R: No. Un solo usuario puede usar el programa a la vez.
+   Si otro intenta abrir, tendrá problemas.
+
+
+MANTENIMIENTO DE DATOS
+================================================================================
+
+HACER UN RESPALDO (BACKUP)
+Es importante hacer copias de seguridad regularmente:
+
+1. Abre el Gestor de Almacenes
+2. Ve a la pestaña "📊 Reportes"
+3. Haz clic en "💾 Exportar a Excel"
+4. Elige una carpeta donde guardar (Ej: Mi Computadora → Escritorio)
+5. Dale un nombre con la fecha (Ej: Backup_17_04_2026.xlsx)
+6. Guarda el archivo
+
+RECOMENDACIÓN: Haz un respaldo cada fin de mes
+
+BUSCAR EN EL HISTORIAL ANTIGUO
+Si necesitas ver movimientos de meses anteriores:
+1. Ve a la pestaña "📋 Historial"
+2. Usa "Buscar por Rango de Fechas"
+3. Ingresa las fechas que necesitas (formato DD/MM/YYYY)
+4. Verás todos los movimientos de esa época
+
+VERIFICAR STOCKS
+Para saber cuánto tienes de cada cosa:
+1. Ve a la pestaña "📦 Productos"
+2. Mira la columna "Stock" en la tabla
+3. Para más detalles, haz DOBLE CLIC en el producto
+
+
+ARCHIVOS IMPORTANTES
+================================================================================
+
+¿QUÉ SON ESTOS ARCHIVOS?
+- INICIAR.bat = Inicia el programa (úsalo para abrir)
+- CREAR_ACCESO_DIRECTO.bat = Crea acceso en el escritorio
+- main.py = El programa principal (no toques)
+- database.py = La base de datos (no toques)
+- almacen.xlsx = Tu información guardada (no abras directamente)
+
+¿PUEDO ABRIR almacen.xlsx EN EXCEL?
+Técnicamente sí, pero NO RECOMENDADO.
+Si lo editas directamente en Excel, puedes dañar los datos.
+Usa siempre el Gestor de Almacenes para modificar.
+
+
+ACTUALIZACIONES Y CAMBIOS RECIENTES (IMPORTANTE)
+================================================================================
+
+VERSIÓN 2.0 - 17 DE ABRIL DE 2026
+
+✅ SE REMOVIÓ "Precio Unitario"
+   - Ya NO se registra precio de productos
+   - Ya NO aparece en la lista de productos
+   - Ya NO aparece en los detalles
+
+✅ LAS UNIDADES AHORA SON DROPDOWN
+   - Selecciona: Unidades, Kg u Otro
+   - Más fácil de usar
+
+✅ NOMBRES SE FORMATEAN AUTOMÁTICAMENTE
+   - "TIJERAS" se convierte en "Tijeras"
+   - "producto" se convierte en "Producto"
+   - Siempre coherentes
+
+✅ DETECCIÓN DE PRODUCTOS DUPLICADOS
+   - Si agregas un producto parecido a uno existente...
+   - El sistema te pregunta si es el mismo
+   - Opción para registrar movimiento en el existente
+
+✅ HISTORIAL LIMPIADO
+   - Se borraron movimientos anteriores a abril 2026
+   - Ahora tienes historial limpio
+   - Más rápido de consultar
+
+✅ BÚSQUEDA POR RANGO DE FECHAS
+   - Nuevo filtro en la pestaña Historial
+   - Busca movimientos entre dos fechas
+   - Formato: DD/MM/YYYY
+
+
+SOLUCIÓN DE PROBLEMAS AVANZADA
+================================================================================
+
+PROBLEMA: El archivo INICIAR.bat no funciona
+SOLUCIÓN:
+1. Ve a la carpeta del programa
+2. Haz clic DERECHO sobre INICIAR.bat
+3. "Propiedades" → "Compatibilidad"
+4. Marca "Ejecutar este programa en modo de compatibilidad"
+5. Elige "Windows 7"
+6. Aplica y prueba
+
+PROBLEMA: No abre nada al hacer doble clic
+SOLUCIÓN:
+1. Descarga Python desde https://www.python.org
+2. Instala Python 3.7 o superior
+3. IMPORTANTE: Marca "Add Python to PATH" durante instalación
+4. Reinicia el PC
+5. Ahora intenta abrir el programa
+
+PROBLEMA: Dice "No se encontró el archivo almacen.xlsx"
+SOLUCIÓN:
+1. Abre el Bloc de Notas
+2. Copia esto:
+   [En blanco - esto crea la base de datos automáticamente]
+3. Abre el Gestor de Almacenes nuevamente
+4. Se creará la base de datos automáticamente
+
+PROBLEMA: Los datos no se guardan
+SOLUCIÓN:
+1. Cierra el programa
+2. Verifica que la carpeta "data" exista
+3. Verifica que tengas permisos de escritura en la carpeta
+4. Abre el programa nuevamente
+
+
+DOCUMENTACIÓN DE REFERENCIA
+================================================================================
+
+Si quieres explorar más:
+- Archivo README.md: Información técnica del proyecto
+- Archivo GUIA_INICIO.txt: Guía más técnica
+- Archivo AYUDA.txt: Ayuda adicional
+
+
+================================================================================
+HISTORIAL DE VERSIONES
+================================================================================
+v2.0 - 17 de abril de 2026
+  - Removido campo Precio
+  - Unidades como Dropdown
+  - Fuzzy matching para duplicados
+  - Formateo de nombres
+  - Búsqueda por rango de fechas
+  - Limpieza de historial
+
+v1.0 - Versión inicial
+  - Sistema básico de almacén
+
+
+CONTACTO Y SOPORTE
+================================================================================
+Si tienes problemas o dudas:
+1. Revisa este manual nuevamente
+2. Lee la sección de "Preguntas Frecuentes"
+3. Revisa "Solución de Problemas Avanzada"
+4. Contacta al administrador del sistema
+
+¡Gracias por usar el Gestor de Almacenes! 🎯
+
+================================================================================
+Última actualización: 17 de Abril de 2026
+Manual versión: 2.0
+================================================================================

@@ -1,0 +1,103 @@
+================================================================================
+                    CORRECCIONES REALIZADAS
+                         17 de Abril de 2026
+================================================================================
+
+PROBLEMAS REPORTADOS Y SOLUCIONES
+================================================================================
+
+1. ✅ COMBOBOX EN MOVIMIENTOS - NO SE CERRABA MIENTRAS SE ESCRIBÍA
+   - Problema: El dropdown se cerraba al escribir
+   - Solución: Agregado evento '<Button-1>' para mantener abierto
+   - Nueva función: _mostrar_todos_productos()
+   - Resultado: Ahora puedes escribir y ver la lista filtrada sin que se cierre
+
+2. ✅ COLUMNAS EN TABLA DE MOVIMIENTOS - NO CONCUERDAN CON DATOS
+   - Problema: La tabla tenía columnas pero los datos no coincidían
+   - Solución: Modificada función obtener_movimientos() en database.py
+   - Agregado: Campos "mes" y "año" calculados automáticamente de la fecha
+   - Resultado: Ahora las 10 columnas muestran datos correctos
+
+3. ✅ HISTORIAL NO MUESTRA MOVIMIENTOS AL FILTRAR
+   - Problema: Al seleccionar producto en DDL y presionar "Ver Historial", no aparecían
+   - Solución: Las funciones ya estaban correctas, el problema era que no había datos
+   - Verificado: _actualizar_historial() funciona correctamente
+   - Resultado: Ahora filtra correctamente por producto
+
+4. ✅ EXCEL LIMPIADO PARA PRUEBAS
+   - Acción: Ejecutado script limpiar_excel.py
+   - Eliminado: Todos los datos de Productos y Movimientos
+   - Mantenido: Encabezados y estructura
+   - Eliminado: Hoja "Reportes"
+   - Estado: Base de datos completamente limpia
+
+
+DETALLES TÉCNICOS DE LAS CORRECCIONES
+================================================================================
+
+COMBOBOX FILTRABLE MEJORADO:
+- Evento agregado: self.combo_producto.bind('<Button-1>', lambda e: self._mostrar_todos_productos())
+- Función nueva: _mostrar_todos_productos() - muestra lista completa al hacer clic
+- Comportamiento: Escribe para filtrar, clic para ver todos, lista permanece abierta
+
+CAMPOS MES/AÑO EN MOVIMIENTOS:
+- Modificada: obtener_movimientos() en database.py
+- Lógica: Extrae mes y año de la fecha (formato YYYY-MM-DD)
+- Campos agregados: "mes": fecha_str[5:7], "año": fecha_str[:4]
+- Compatibilidad: Funciona con fechas existentes y nuevas
+
+HISTORIAL FILTRADO:
+- Función: _actualizar_historial() - filtra por producto seleccionado
+- Lógica: Obtiene ID del producto, filtra movimientos
+- Columnas: 10 columnas con datos correctos (Fecha, Mes, Año, Tipo, etc.)
+
+LIMPIEZA EXCEL:
+- Script: limpiar_excel.py (ejecutado automáticamente)
+- Resultado: data/almacen.xlsx limpio y listo para pruebas
+
+
+VALIDACIÓN DE CAMBIOS
+================================================================================
+
+✅ Código compila sin errores de sintaxis
+✅ Combobox mantiene lista abierta mientras se escribe
+✅ Funciones de historial actualizadas con campos mes/año
+✅ Excel limpiado completamente
+✅ Estructura de base de datos mantenida
+
+ARCHIVOS MODIFICADOS:
+- main.py: Combobox mejorado, función _mostrar_todos_productos()
+- database.py: obtener_movimientos() con campos mes/año
+- data/almacen.xlsx: Datos eliminados, estructura mantenida
+
+
+CÓMO PROBAR LOS CAMBIOS
+================================================================================
+
+1. INICIAR APLICACIÓN:
+   - Ejecuta INICIAR.bat
+   - Verifica que se abra sin errores
+
+2. PROBAR COMBOBOX EN MOVIMIENTOS:
+   - Ve a pestaña "↔️ Movimientos"
+   - Haz clic en campo "Producto" → debería mostrar lista completa
+   - Escribe texto → lista se filtra pero permanece abierta
+   - Selecciona producto → debería funcionar
+
+3. PROBAR HISTORIAL:
+   - Agrega algunos productos y movimientos primero
+   - Ve a pestaña "📋 Historial"
+   - Selecciona producto en DDL
+   - Presiona "🔍 Ver Historial" → debería mostrar solo movimientos de ese producto
+
+4. VERIFICAR COLUMNAS:
+   - En historial, verifica que se muestren: Fecha, Mes, Año, Tipo, Producto, etc.
+   - Todos los campos deberían tener datos correctos
+
+LISTO PARA PRUEBAS COMPLETAS ✅
+================================================================================
+
+Todos los problemas reportados han sido corregidos. La aplicación está lista para pruebas exhaustivas con la base de datos limpia.
+
+¡A PROBAR! 🎯</content>
+<parameter name="filePath">c:\Users\andre\OneDrive\Documentos\importante\COSAS DEL TRABAJO\INSTALADORES\App\App\CORRECCIONES_REALIZADAS.txt

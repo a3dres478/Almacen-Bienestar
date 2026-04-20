@@ -1,0 +1,327 @@
+================================================================================
+COMO AGREGAR EL LOGO DEL COCODRILO
+================================================================================
+
+PASO A PASO VISUAL
+
+================================================================================
+UBICACION CORRECTA DEL ARCHIVO
+================================================================================
+
+Tu estructura de carpetas debe verse así:
+
+ANTES (sin logo):
+┌─────────────────────────────────────────────────────────────┐
+│ App/                                                        │
+│  ├─ main.py                                                │
+│  ├─ database.py                                            │
+│  ├─ INSTALAR.bat                                           │
+│  ├─ INICIAR.bat                                            │
+│  ├─ data/                                                  │
+│  │   └─ almacen.xlsx                                       │
+│  └─ templates/                                             │
+│      └─ plantilla_carga.xlsx                              │
+└─────────────────────────────────────────────────────────────┘
+
+DESPUES (con logo):
+┌─────────────────────────────────────────────────────────────┐
+│ App/                                                        │
+│  ├─ main.py                                                │
+│  ├─ database.py                                            │
+│  ├─ INSTALAR.bat                                           │
+│  ├─ INICIAR.bat                                            │
+│  ├─ logo.png  ← ¡AQUI VA EL LOGO!                         │
+│  ├─ data/                                                  │
+│  │   └─ almacen.xlsx                                       │
+│  └─ templates/                                             │
+│      └─ plantilla_carga.xlsx                              │
+└─────────────────────────────────────────────────────────────┘
+
+LA RUTA COMPLETA DEBE SER:
+C:\Users\david\OneDrive\Desktop\TRABAJO\BC\App\logo.png
+
+================================================================================
+OPCION 1: COLOCA DIRECTAMENTE logo.png
+================================================================================
+
+Si ya tienes el archivo del cocodrilo como logo.png:
+
+1. Navega a la carpeta App
+   Ubicación: C:\Users\david\OneDrive\Desktop\TRABAJO\BC\App\
+
+2. Coloca logo.png en esa carpeta
+   Junto a main.py, database.py, INICIAR.bat, etc.
+
+3. Ejecuta INICIAR.bat
+   La aplicación debería mostrar el logo en el encabezado
+
+RESULTADO:
+┌──────────────────────────────────────┐
+│ [LOGO] GESTOR DE ALMACENES           │
+│        Sistema Local de Inventario   │
+└──────────────────────────────────────┘
+
+================================================================================
+OPCION 2: CONVIERTE IMAGEN A PNG (si está en otro formato)
+================================================================================
+
+Si tienes la imagen en .jpg, .bmp u otro formato:
+
+1. Coloca la imagen en la carpeta App
+   (Puede tener cualquier nombre, ej: cocodrilo.jpg, image.bmp, etc.)
+
+2. Haz doble click en: convertir_logo.py
+   El script buscará cualquier imagen y la convertirá a PNG
+
+3. El archivo se guardará automáticamente como: logo.png
+
+4. Ejecuta INICIAR.bat
+   ¡El logo debería aparecer!
+
+PROCESO:
+  cocodrilo.jpg → convertir_logo.py → logo.png ✓
+
+FORMATOS SOPORTADOS:
+  ✓ .jpg / .jpeg
+  ✓ .png
+  ✓ .bmp
+  ✓ .gif
+  ✓ .tiff
+  ✓ .webp
+
+================================================================================
+VERIFICACION: COMO SABER QUE FUNCIONO
+================================================================================
+
+ANTES (sin logo):
+┌────────────────────────────────────────┐
+│ GESTOR DE ALMACENES                    │
+│ Sistema Local de Inventario            │
+└────────────────────────────────────────┘
+
+DESPUES (con logo):
+┌────────────────────────────────────────┐
+│ [🐊] GESTOR DE ALMACENES              │ ← Verde oscuro
+│      Sistema Local de Inventario      │
+└────────────────────────────────────────┘
+
+EL LOGO DEBERIA:
+  ✓ Aparecer en el lado izquierdo del encabezado
+  ✓ Tener fondo verde oscuro
+  ✓ Ser del tamaño aproximado de un pulgar
+  ✓ Mostrar el cocodrilo claramente
+
+SI NO APARECE:
+  ✗ Verifica que logo.png esté en la carpeta correcta
+  ✗ Verifica que sea formato PNG
+  ✗ Cierra y abre nuevamente INICIAR.bat
+  ✗ Ejecuta INSTALAR.bat para reinstalar Pillow
+
+================================================================================
+PROCESO EN DETALLE - PASO A PASO
+================================================================================
+
+COMENZAR CON IMAGEN Y TERMINAR CON APLICACION:
+
+PASO 1: DESCARGA LA IMAGEN DEL COCODRILO
+└─ Tienes un archivo: cocodrilo.jpg (o la imagen que sea)
+
+PASO 2: COPIA A LA CARPETA APP
+└─ Copia el archivo a: C:\Users\david\OneDrive\Desktop\TRABAJO\BC\App\
+
+PASO 3: EJECUTA EL CONVERTIDOR (si no es PNG)
+   Si la imagen NO es .png:
+   └─ Haz doble click en: convertir_logo.py
+   └─ Espera a que diga "Logo guardado"
+   
+   Si la imagen YA es .png:
+   └─ Solo renómbrala a: logo.png
+
+PASO 4: VERIFICA QUE EXISTA logo.png
+└─ En la carpeta App debe haber un archivo llamado: logo.png
+
+PASO 5: ABRE LA APLICACION
+└─ Haz doble click en: INICIAR.bat
+
+PASO 6: VERIFICA EL ENCABEZADO
+└─ En la parte superior debería aparecer el logo verde
+
+PASO 7: ¡LISTO!
+└─ Tu aplicación ya tiene el logo integrado
+
+================================================================================
+REQUISITOS DEL LOGO
+================================================================================
+
+Para que el logo se vea bien:
+
+FORMATO:           PNG (o .jpg al cual se le convertirá a PNG)
+NOMBRE:            logo.png (exactamente este nombre)
+UBICACION:         Carpeta App (junto a main.py)
+TAMAÑO:            700x700 píxeles o mayor (se redimensiona automáticamente)
+PROPORCION:        Preferentemente cuadrado (si no es cuadrado se ajusta)
+COLORES:           Cualquier color (verde es lo natural para el cocodrilo)
+FONDO:             Puede tener fondo transparente o sólido
+CALIDAD:           Mínimo 200x200 píxeles (se verá pequeño en la app)
+
+================================================================================
+TAMAÑO EN LA APLICACION
+================================================================================
+
+El logo se mostrará con estos tamaños:
+
+PANTALLA:          Se redimensiona a 60x60 píxeles en el encabezado
+INTERFAZ:          Ocupa el lado izquierdo del encabezado verde oscuro
+PROPORCION:        Se mantiene la proporción del original
+
+Si tu imagen es cuadrada (500x500):
+  └─ Se mostrará como cuadrado de 60x60 ✓
+
+Si tu imagen es rectangular (800x400):
+  └─ Se ajusta manteniendo proporción ✓
+
+================================================================================
+COMO VERIFICAR LA UBICACION
+================================================================================
+
+Para estar COMPLETAMENTE SEGURO de dónde poner el archivo:
+
+METODO 1: Explorador de Archivos
+  1. Abre Explorador de Archivos (Windows Explorer)
+  2. Navega a: C:\Users\david\OneDrive\Desktop\TRABAJO\BC\App
+  3. Coloca logo.png en esa carpeta
+  4. Deberías ver junto a:
+     - main.py
+     - database.py
+     - INICIAR.bat
+     - etc.
+
+METODO 2: Desde Command Prompt
+  1. Abre Command Prompt
+  2. Navega hasta la carpeta:
+     cd C:\Users\david\OneDrive\Desktop\TRABAJO\BC\App
+  3. Deberías ver archivos con: dir
+     Y logo.png debe estar en la lista
+
+METODO 3: Desde la App
+  1. Si logo.png está en el lugar correcto
+  2. INICIAR.bat lo encontrará automáticamente
+  3. La aplicación lo mostrará sin hacer nada más
+
+================================================================================
+SOLUCCION DE PROBLEMAS CON EL LOGO
+================================================================================
+
+PROBLEMA                          SOLUCION
+─────────────────────────────────────────────────────────────────────────────
+
+El logo no aparece                1. Verifica que logo.png esté en la carpeta
+                                  2. Cierra y abre nuevamente INICIAR.bat
+                                  3. Ejecuta INSTALAR.bat para reinstalar Pillow
+
+"No se pudo cargar el logo"       1. El archivo no es PNG válido
+(en pantalla de error)            2. Usa convertir_logo.py para convertir
+                                  3. Verifica que la imagen no esté dañada
+
+El ejecutable no incluye el logo  1. Logo debe estar en la carpeta antes de crear .exe
+                                  2. Ejecuta CREAR_EJECUTABLE.bat de nuevo
+                                  3. Verifica que logo.png exista
+
+Logo se ve pixelado               1. La imagen es muy pequeña
+                                  2. Usa una imagen de al menos 500x500
+                                  3. Mejor: 1000x1000 píxeles
+
+Logo se ve deformado              1. Si la imagen no es cuadrada
+                                  2. El script intentará mantener proporción
+                                  3. Usa imagen cuadrada para mejor resultado
+
+================================================================================
+EJEMPLO VISUAL FINAL
+================================================================================
+
+CUANDO FUNCIONA CORRECTAMENTE:
+
+Abre INICIAR.bat y verás:
+
+┌────────────────────────────────────────────────────────────────┐
+│ ┌──────────────────────────────────────────────────────────────┤
+│ │ [🐊] GESTOR DE ALMACENES                                    │ ← Encabezado
+│ │      Sistema Local de Inventario                            │   VERDE
+│ └──────────────────────────────────────────────────────────────┤
+├────────────────────────────────────────────────────────────────┤
+│ │ Productos ▼ │ Movimientos ▼ │ Historial ▼ │ Reportes ▼    │  ← Pestañas
+├────────────────────────────────────────────────────────────────┤   VERDES
+│ Agregar Nuevo Producto            (fondo verde claro)         │
+│                                                                │
+│ Nombre: [____________________________]                       │
+│ Descripción: [____________________________]                  │
+│ Stock Inicial: [____________________________]                │
+│                                    [Agregar]                 │
+│                                                                │
+│ Productos Registrados:                                        │
+│ ┌──────────────────────────────────────────────────────────┐ │
+│ │ ID │ Nombre  │ Stock │ Precio  │ Unidad │ (scroll)  │   │ │
+│ ├──────────────────────────────────────────────────────────┤ │
+│ │ 1  │ Laptop  │ 10    │ 1200.00 │ Unidad │           │   │ │
+│ │ 2  │ Mouse   │ 50    │ 25.50   │ Unidad │           │   │ │
+│ └──────────────────────────────────────────────────────────┘ │
+└────────────────────────────────────────────────────────────────┘
+
+TODO VERDE Y EL LOGO VISIBLE = ¡PERFECTO!
+
+================================================================================
+SIGUIENTES PASOS
+================================================================================
+
+Una vez que el logo está visible:
+
+1. Prueba los movimientos
+2. Genera reportes
+3. (Opcional) Crea ejecutable con CREAR_EJECUTABLE.bat
+
+Si quieres que el logo aparezca en el ejecutable:
+  → El logo debe estar en la carpeta ANTES de crear el .exe
+  → Ejecuta CREAR_EJECUTABLE.bat
+  → El .exe incluirá el logo automáticamente
+
+================================================================================
+PREGUNTAS FRECUENTES SOBRE EL LOGO
+================================================================================
+
+P: ¿Puedo cambiar el logo después?
+R: Sí, reemplaza logo.png con una nueva imagen
+
+P: ¿Puedo tener texto en el logo?
+R: Sí, cualquier imagen sirve
+
+P: ¿Se puede hacer más grande?
+R: El script lo ajusta automáticamente a 60x60 píxeles en la interfaz
+
+P: ¿Qué pasa si no tengo logo?
+R: La app funciona igual, solo sin imagen
+
+P: ¿Debo convertir la imagen?
+R: Solo si no es PNG. Si es JPG, usa convertir_logo.py
+
+P: ¿El logo afecta el rendimiento?
+R: No, es solo una imagen de 60x60 píxeles
+
+P: ¿Puedo tener logo en el ejecutable?
+R: Sí, coloca logo.png antes de ejecutar CREAR_EJECUTABLE.bat
+
+P: ¿Sirve cualquier formato de imagen?
+R: Sí, cualquiera que pueda abrir en Windows (jpg, png, bmp, etc.)
+
+================================================================================
+RESUMEN
+================================================================================
+
+1. Obtén la imagen del cocodrilo
+2. Colócala en: C:\Users\david\OneDrive\Desktop\TRABAJO\BC\App\
+3. Renómbrala a: logo.png
+4. Ejecuta: INICIAR.bat
+5. ¡Lo verás en el encabezado verde!
+
+¡Así de simple!
+
+================================================================================

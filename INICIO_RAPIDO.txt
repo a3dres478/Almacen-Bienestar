@@ -1,0 +1,332 @@
+================================================================================
+GUIA RAPIDA DE INICIO - 3 MINUTOS
+================================================================================
+
+¿QUIERES EMPEZAR AHORA? SIGUE ESTO:
+
+================================================================================
+PASO 1: INSTALAR (1 minuto)
+================================================================================
+
+Haz doble click en:  INSTALAR.bat
+
+Espera a que termine y verás:
+  ✓ Verificando Python
+  ✓ Instalando openpyxl
+  ✓ Instalando Pillow
+  ✓ ¡Listo! Presiona cualquier tecla...
+
+LISTO. Ya está instalado.
+
+================================================================================
+PASO 2: INICIAR (30 segundos)
+================================================================================
+
+Haz doble click en:  INICIAR.bat
+
+Se abrirá una ventana con:
+  ┌──────────────────────────┐
+  │ GESTOR DE ALMACENES      │
+  │ Sistema Local Inventario │
+  └──────────────────────────┘
+
+Con 5 pestañas en verde:
+  • Productos
+  • Movimientos
+  • Historial
+  • Reportes
+  • Importar/Exportar
+
+LISTO. La app está abierta.
+
+================================================================================
+PASO 3: AGREGAR PRIMER PRODUCTO (30 segundos)
+================================================================================
+
+En la pestaña PRODUCTOS:
+
+1. Nombre:        "Laptop Dell"
+2. Descripción:   "Laptop 15 pulgadas"
+3. Stock Inicial: "10"
+4. Precio Unit.:  "1200"
+5. Unidad:        "Unidad"
+6. URL Imagen:    (opcional) "https://example.com/laptop.jpg"
+
+Haz click en:  [Agregar Nuevo Producto]
+
+Verás en la tabla abajo que aparece.
+💡 TIP: Doble click en el producto para ver detalles completos.
+
+LISTO. Primer producto creado.
+
+================================================================================
+PASO 4: REGISTRAR MOVIMIENTO (30 segundos)
+================================================================================
+
+Ve a la pestaña MOVIMIENTOS:
+
+1. Producto:        ESCRIBE "lap" (aparecerán sugerencias automáticamente)
+2. Selecciona:      "1 - Laptop Dell" de la lista
+3. Tipo:            Selecciona "Salida"
+4. Cantidad:        Escribe "2" (solo números enteros positivos)
+5. Motivo:          Escribe "Venta a Cliente ABC"
+6. Responsable:     Escribe "Juan"
+
+Haz click en:  [Registrar Movimiento]
+
+Verás abajo el movimiento registrado.
+El stock se actualizará automáticamente.
+
+LISTO. Stock actualizado.
+
+DE ENTRADA A 10: stock pasa a 12
+DE SALIDA DE 10: stock pasa a 8
+
+================================================================================
+PASO 5: VER HISTORIAL (15 segundos)
+================================================================================
+
+Ve a la pestaña HISTORIAL:
+
+Verás TODAS las operaciones:
+  • Fecha
+  • Hora
+  • Producto
+  • Tipo (Entrada/Salida)
+  • Cantidad
+  • Stock Anterior
+  • Stock Nuevo
+  • Responsable
+
+LISTO. Historial completo.
+
+================================================================================
+PASO 6: GENERAR REPORTE (15 segundos)
+================================================================================
+
+Ve a la pestaña REPORTES:
+
+Haz click en:  [Generar Reporte]
+
+Se guardará automáticamente en:
+  → data/almacen.xlsx (hoja "Reportes")
+
+Tienes un resumen con:
+  • Entradas totales por producto
+  • Salidas totales por producto
+  • Stock actual
+  • Valor del inventario
+
+LISTO. Reporte generado.
+
+================================================================================
+PASO 7: EXPORTAR DATOS (opcional)
+================================================================================
+
+Ve a la pestaña IMPORTAR/EXPORTAR:
+
+OPCION 1: Descargar plantilla
+  → [Descargar Plantilla]
+  → Se crea templates/plantilla_carga.xlsx
+  → Llena con tus datos
+  → Luego importa
+
+OPCION 2: Exportar todo
+  → [Exportar Base de Datos]
+  → Se descarga almacen.xlsx
+  → Puedes abrirlo en Excel, editar, etc.
+
+LISTO. Datos listos para usar en Excel.
+
+================================================================================
+PASO 8: AGREGAR EL LOGO (opcional)
+================================================================================
+
+Tienes un cocodrilo como logo?
+
+1. Colócalo en la carpeta App
+   Ubicación: C:\Users\david\OneDrive\Desktop\TRABAJO\BC\App\
+
+2. Renómbralo a: logo.png
+
+3. Si no es PNG, ejecuta: convertir_logo.py
+
+4. Abre nuevamente: INICIAR.bat
+
+El logo aparecerá en el encabezado verde.
+
+Ver más detalles en: LOGO_INSTRUCCIONES.txt
+
+LISTO. Logo integrado.
+
+================================================================================
+PASO 9: HACER EJECUTABLE (opcional)
+================================================================================
+
+¿Quieres distribuir sin Python?
+
+Haz doble click en:  CREAR_EJECUTABLE.bat
+
+Espera 2-3 minutos...
+
+Se creará un archivo:  dist/GestorAlmacenes.exe
+
+Puedes compartir ese .exe con otros usuarios.
+No necesitan Python instalado.
+
+LISTO. Ejecutable creado.
+
+================================================================================
+ATAJOS UTILES
+================================================================================
+
+ABRIR EXCEL CON DATOS:
+  → Abre C:\Users\david\OneDrive\Desktop\TRABAJO\BC\App\data\almacen.xlsx
+  → Verás 3 hojas: Productos, Movimientos, Reportes
+
+DESCARGAR PLANTILLA:
+  → En la app, pestaña IMPORTAR/EXPORTAR
+  → Haz click en [Descargar Plantilla]
+  → Se crea en templates/plantilla_carga.xlsx
+
+IMPORTAR DATOS DE EXCEL:
+  → Llena la plantilla con tus datos
+  → En la app, pestaña IMPORTAR/EXPORTAR
+  → Haz click en [Importar desde Excel]
+  → Selecciona tu archivo
+  → Los datos se agregan automáticamente
+
+CREAR COPIA DE SEGURIDAD:
+  → Copia la carpeta App completa
+  → Pégala en otro lugar (USB, cloud, etc.)
+  → Todo el almacén está en data/almacen.xlsx
+
+================================================================================
+ERRORES COMUNES
+================================================================================
+
+ERROR: "Python no encontrado"
+  → Ejecuta: INSTALAR.bat nuevamente
+  → Verifica que Python 3.8+ esté instalado
+
+ERROR: "No se puede crear la base de datos"
+  → Verifica que tengas permisos en la carpeta App
+  → No debe estar abierta en Excel
+
+ERROR: "Stock insuficiente"
+  → Intentaste vender más de lo que existe
+  → Primero registra una Entrada
+
+ERROR: "No se puede abrir Excel"
+  → El archivo data/almacen.xlsx está abierto en Excel
+  → Ciérra primero en Excel, luego re-abre la app
+
+================================================================================
+CARACTERISTICAS PRINCIPALES
+================================================================================
+
+✓ Gestión de Productos
+  - Agregar productos con nombre, descripción, precio
+  - Ver stock en tiempo real
+  - Historial completo de cambios
+
+✓ Registro de Movimientos
+  - Entrada (compra, devolución, etc.)
+  - Salida (venta, desperdicio, etc.)
+  - Motivo y responsable automático
+
+✓ Historial Completo
+  - Ver todas las operaciones
+  - Filtrar por producto
+  - Stock antes y después de cada movimiento
+
+✓ Reportes
+  - Generar automáticamente
+  - Entradas y salidas por producto
+  - Valor total del inventario
+
+✓ Importación/Exportación
+  - Descargar plantilla para llenar
+  - Importar datos en lote
+  - Exportar a Excel profesional
+
+✓ Persistencia
+  - Datos guardados en Excel
+  - Se mantiene aunque cierres la app
+  - Puedes editar directamente en Excel si quieres
+
+✓ Interfaz Verde
+  - 5 tonos de verde profesionales
+  - Fácil de usar
+  - Logo personalizado
+
+✓ Nuevas Funcionalidades v2.1
+  - Búsqueda inteligente con autocompletado
+  - Campo opcional de URL de imagen
+  - Ventana de detalles con doble click
+  - Validaciones mejoradas de números
+
+================================================================================
+PROXIMAMENTE (Extensiones Futuras)
+================================================================================
+
+Si necesitas más funcionalidades:
+
+  → Usuarios y contraseñas (seguridad)
+  → Categorías y subcategorías
+  → Alertas de stock bajo
+  → Integración con sistemas de códigos de barras
+  → Costo de almacenamiento
+  → Predicción de demanda
+  → Multi-ubicación
+  → Dashboard en tiempo real
+
+Contacta para agregar estas funciones.
+
+================================================================================
+SOPORTE Y AYUDA
+================================================================================
+
+DOCUMENTOS DISPONIBLES:
+
+INICIO.txt
+  → Guía básica muy corta (esta)
+
+PRUEBA_RAPIDA.txt
+  → Prueba de nuevas funcionalidades v2.1
+
+RESUMEN_FINAL.txt
+  → Descripción completa con ejemplos
+
+GUIA_INICIO.txt
+  → Solución de problemas paso a paso
+
+LOGO_INSTRUCCIONES.txt
+  → Todo sobre el logo del cocodrilo
+
+PORTABLE_GUIDE.txt
+  → Cómo crear y distribuir el .exe
+
+ARQUITECTURA.txt
+  → Para desarrolladores
+
+AYUDA.txt
+  → Guía de navegación de todos los archivos
+
+================================================================================
+¡LISTO PARA EMPEZAR!
+================================================================================
+
+Resumido:
+
+1. Haz doble click en INSTALAR.bat
+2. Haz doble click en INICIAR.bat
+3. ¡La app está abierta!
+4. Agrega productos y movimientos
+
+El resto es intuición.
+La interfaz verde te guía.
+
+¿Dudas?: Lee los otros documentos  .txt en la carpeta
+
+================================================================================

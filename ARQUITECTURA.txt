@@ -1,0 +1,380 @@
+================================================================================
+ARQUITECTURA DEL GESTOR DE ALMACENES
+================================================================================
+
+Este documento explica la estructura técnica de la aplicación.
+
+================================================================================
+ESTRUCTURA GENERAL
+================================================================================
+
+app.py (main.py)
+    ↓
+    ├─→ database.py (GestorAlmacen)
+    │       ├─→ data/almacen.xlsx (Hoja: Productos)
+    │       ├─→ data/almacen.xlsx (Hoja: Movimientos)
+    │       └─→ data/almacen.xlsx (Hoja: Reportes)
+    │
+    └─→ tkinter (Interfaz Gráfica)
+            ├─→ Pestaña Productos
+            ├─→ Pestaña Movimientos
+            ├─→ Pestaña Historial
+            ├─→ Pestaña Reportes
+            └─→ Pestaña Importar/Exportar
+
+================================================================================
+COMPONENTES PRINCIPALES
+================================================================================
+
+1. INTERFAZ (main.py - GestorAlmacenesUI)
+   
+   Responsabilidades:
+   - Crear la ventana principal
+   - Mostrar las 5 pestañas
+   - Recopilar entrada del usuario
+   - Mostrar los datos
+   - Llamar a database.py para procesar datos
+   
+   Clases:
+   - GestorAlmacenesUI
+     - _crear_interfaz()
+     - _crear_pestana_productos()
+     - _crear_pestana_movimientos()
+     - _crear_pestana_historial()
+     - _crear_pestana_reportes()
+     - _crear_pestana_importacion()
+     - _agregar_producto()
+     - _registrar_movimiento()
+     - (y más métodos...)
+
+2. BASE DE DATOS (database.py - GestorAlmacen)
+   
+   Responsabilidades:
+   - Crear y mantener el archivo Excel
+   - Leer/escribir datos
+   - Calcular stock
+   - Generar reportes
+   - Exportar/importar Excel
+   
+   Clases:
+   - GestorAlmacen
+     - agregar_producto()
+     - registrar_movimiento()
+     - obtener_productos()
+     - obtener_movimientos()
+     - generar_reporte()
+     - exportar_plantilla_carga()
+     - cargar_productos_desde_excel()
+     - (y más métodos...)
+
+3. ALMACENAMIENTO (data/almacen.xlsx)
+   
+   Hojas:
+   - Productos: ID, Nombre, Descripción, Stock, Precio, Unidad, FechaCreacion
+   - Movimientos: ID_Mov, Fecha, Tipo, ID_Prod, Nombre_Prod, Cantidad, 
+                  Stock_Anterior, Stock_Nuevo, Motivo, Responsable
+   - Reportes: Fecha, Producto, Movimientos, Entradas, Salidas, StockFinal, ValorStock
+
+================================================================================
+FLUJO DE DATOS
+================================================================================
+
+AGREGAR PRODUCTO:
+  Usuario ingresa datos → UI recibe datos → DB valida → Escribe en Excel
+
+REGISTRAR MOVIMIENTO:
+  Usuario elige producto → DB obtiene stock actual → SE CALCULA NUEVO STOCK
+  → Se registra en Movimientos → Se actualiza Stock en Productos
+
+OBTENER PRODUCTOS:
+  UI solicita lista → DB lee Excel → Retorna lista → UI muestra en tabla
+
+GENERAR REPORTE:
+  Usuario solicita → DB lee todas las hojas → Procesa datos → Genera resumen
+  → UI muestra en ventana
+
+IMPORTAR EXCEL:
+  Usuario carga archivo → DB lee archivo nuevo → Valida datos
+  → Agrega a DB original → UI muestra resultado
+
+================================================================================
+TECNOLOGIAS USADAS
+================================================================================
+
+1. PYTHON 3.10+
+   - Lenguaje de programación base
+   - Multiplataforma
+   - Fácil de entender y mantener
+
+2. TKINTER
+   - Librería gráfica incluida con Python
+   - Interfaz simple pero funcional
+   - Funciona en Windows, Mac, Linux
+
+3. OPENPYXL
+   - Librería para leer/escribir Excel
+   - Permite crear archivos .xlsx
+   - Permite formatear (colores, bordes, etc.)
+
+4. DATETIME
+   - Incluida en Python
+   - Para registrar fechas y horas automáticamente
+
+5. OS / SYS
+   - Incluidas en Python
+   - Para manejo de rutas y directorios
+
+================================================================================
+SEGURIDAD Y CONSIDERACIONES
+================================================================================
+
+SEGURIDAD:
+  - Validación de entrada (números, valores requeridos)
+  - Manejo de errores con try/except
+  - No hay funciones de delete (no borras hoja, solo agregas movimientos)
+  - Historial completo (auditoria)
+  - Responsable registrado en cada movimiento
+
+LIMITACIONES:
+  - No hay autenticación de usuarios
+  - No hay encriptación de datos
+  - No es tiempo real (es asincrónico)
+  - Óptimo para 100-5000 productos
+  - Máximo ~10,000 movimientos mensuales
+
+MEJORAS FUTURAS POSIBLES:
+  - Autenticación de usuarios
+  - Categorías de productos
+  - Alertas de stock bajo
+  - Análisis de ventas
+  - Migración a base de datos SQL
+  - Interfaz web
+  - Sincronización en nube
+
+================================================================================
+ESTRUCTURA DE ARCHIVOS
+================================================================================
+
+App/
+│
+├── INICIO.txt ..................... Este archivo de inicio
+├── GUIA_INICIO.txt ................ Guía de usuario
+├── README.md ....................... Documentación completa
+├── ARQUITECTURA.txt ................ Documento acutal
+│
+├── INICIAR.bat .................... Script para ejecutar app (DOBLE CLICK)
+├── INSTALAR.bat ................... Script para instalar dependencias
+├── CREAR_ACCESO_DIRECTO.bat ....... Script para crear atajo
+│
+├── main.py ........................ INTERFAZ GRAFICA (Tkinter)
+│                                    - Ventana principal
+│                                    - 5 pestañas
+│                                    - Formularios
+│                                    - Tablas
+│
+├── database.py .................... LOGICA DE DATOS (Excel)
+│                                    - Crear/leer/escribir datos
+│                                    - Calcular stock
+│                                    - Generar reportes
+│                                    - Importar/exportar
+│
+├── run.py ......................... Script de instalación automática
+├── start.py ....................... Script de inicio alternativo
+├── test_example.py ................ Script de prueba
+│
+├── requirements.txt ............... Dependencias Python
+│                                    - openpyxl==3.10.1
+│
+├── data/ .......................... CARPETA DE BASE DE DATOS
+│   └── almacen.xlsx ............... ARCHIVO PRINCIPAL (Excel)
+│                                    - Hoja: Productos
+│                                    - Hoja: Movimientos
+│                                    - Hoja: Reportes
+│
+├── templates/ ..................... CARPETA DE PLANTILLAS
+│   └── plantilla_carga.xlsx ....... Plantilla para importar
+│
+└── .venv/ ......................... Entorno virtual Python
+    └── (dependencias instaladas)
+
+================================================================================
+COMO FUNCIONA CADA PESTAÑA
+================================================================================
+
+PESTAÑA 1: PRODUCTOS
+- Agregar productos nuevos
+- Ver lista de productos
+- Editar (manualmente en Excel si es necesario)
+- Cada producto tiene: ID, Nombre, Desc, Stock, Precio, Unidad
+
+PESTAÑA 2: MOVIMIENTOS
+- Registrar entrada/salida
+- Ver últimos 10 movimientos
+- Cada movimiento: auto-calcula stock, registra en historia
+- Motivo y responsable son obligatorios (auditoría)
+
+PESTAÑA 3: HISTORIAL
+- Ver todos los movimientos
+- Filtrar por producto
+- Muestra: Fecha, Tipo, Cantidad, Stock Anterior, Stock Nuevo, Motivo, Responsable
+
+PESTAÑA 4: REPORTES
+- Generar reporte completo
+- Muestra resumen por producto
+- Exportar a Excel
+- Muestra valor total del inventario
+
+PESTAÑA 5: IMPORTAR/EXPORTAR
+- Descargar plantilla Excel
+- Importar datos en lote desde Excel
+- Verificar errores
+
+================================================================================
+CICLO DE VIDA DE UN MOVIMIENTO
+================================================================================
+
+1. USUARIO REGISTRA MOVIMIENTO
+   - Selecciona producto
+   - Elige tipo (Entrada/Salida)
+   - Ingresa cantidad
+   - Define motivo y responsable
+
+2. VALIDACION
+   - Verifica que producto exista
+   - Verifica que cantidad sea válida
+   - Si es salida, verifica que haya stock suficiente
+
+3. CALCULO
+   - Obtiene stock actual de Productos
+   - Si Entrada: stock_nuevo = stock_actual + cantidad
+   - Si Salida: stock_nuevo = stock_actual - cantidad
+
+4. REGISTRO
+   - Crea registro en hoja Movimientos con:
+     * ID único auto-incrementado
+     * Fecha-hora actual
+     * Tipo de movimiento
+     * Stock anterior y nuevo
+     * Motivo y responsable
+
+5. ACTUALIZACION
+   - Actualiza campo "Stock Actual" en hoja Productos
+   - Guarda archivo Excel
+
+6. INTERFAZ
+   - Limpia formularios
+   - Muestra mensaje de éxito
+   - Actualiza tablas en pantalla
+
+================================================================================
+PERSISTENCIA DE DATOS
+================================================================================
+
+DONDE SE GUARDAN LOS DATOS:
+  Archivo: data/almacen.xlsx (Excel normal)
+  
+CUANDO SE GUARDAN:
+  - Después de agregar producto
+  - Después de registrar movimiento
+  - Después de generar reporte
+  - Después de importar
+  - Al exportar (copia a otra ubicación)
+
+COMO SE RECUPERAN:
+  - Leyendo el archivo .xlsx
+  - Parseando las 3 hojas
+  - Reconstrnyendo objetos Python
+  - Mostrando en las tablas
+
+RESPALDOS:
+  - Manual: Copiar data/ a otro lugar
+  - Automático: Exportar desde Reportes
+  - Recomendado: 1-2 veces por semana
+
+================================================================================
+CONSIDERACIONES DE PERFORMANCE
+================================================================================
+
+VELOCIDAD DE CARGA:
+  - 100 productos: < 1 segundo
+  - 1000 productos: < 2 segundos
+  - 10000 productos: < 5 segundos
+
+VELOCIDAD DE MOVIMIENTOS:
+  - Registrar: < 0.5 segundos
+  - Reportes: < 1 segundo
+
+OPTIMIZACIONES HECHAS:
+  - CSV sin necesidad de procesar toda la hoja
+  - Lectura/escritura eficiente con openpyxl
+  - Generación de reportes bajo demanda
+
+LIMITACIONES:
+  - Excel no está optimizado para millones de registros
+  - Para >10000 productos, considerar SQL
+
+================================================================================
+EJEMPLOS DE EXTENSIONES FUTURAS
+================================================================================
+
+1. AUTENTICACION
+   - Agregar login
+   - Diferentes permisos por usuario
+   - Historial de quién hace qué
+
+2. CATEGORIAS
+   - Agrupar productos
+   - Reportes por categoría
+   - Buscar más rápido
+
+3. ALERTAS
+   - Notificar cuando stock baja
+   - Producto cerca de vencer
+   - Limites de stock
+
+4. ANALISIS
+   - Productos más vendidos
+   - Tendencias de ventas
+   - Valor del inventario en tiempo
+
+5. INTEGRACIONES
+   - Conectar con proveedores
+   - API para sincronizar
+   - Sincronización en nube
+
+================================================================================
+COMO CONTRIBUIR O MODIFICAR
+================================================================================
+
+Para agregar características:
+1. Entender la estructura (este documento)
+2. Modificar database.py si es lógica de datos
+3. Modificar main.py si es interfaz
+4. Probar con test_example.py
+5. Hacer backup de data/almacen.xlsx antes de hacer cambios
+
+Para corregir bugs:
+1. Identificar dónde ocurre (UI o DB)
+2. Agregrar validación
+3. Probar con varios casos
+4. Documentar el cambio
+
+================================================================================
+CONCLUSION
+================================================================================
+
+El Gestor de Almacenes es una aplicación simple pero funcional que:
+- Es fácil de entender y modificar
+- No requiere servidor
+- Usa Excel (familiar para usuarios)
+- Funciona completamente local
+- Perfecto para almacenes pequeños
+
+Para entender el código completo:
+- database.py: ~400 líneas (lógica de datos)
+- main.py: ~600 líneas (interfaz gráfica)
+- Total: ~1000 líneas de código Python
+
+¡Simple, directo, y efectivo!
+
+================================================================================

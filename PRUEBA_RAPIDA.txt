@@ -1,0 +1,76 @@
+================================================================================
+PRUEBA RAPIDA - NUEVAS FUNCIONALIDADES v2.1
+================================================================================
+
+¡La aplicación está ejecutándose! Sigue estos pasos para probar las nuevas características:
+
+================================================================================
+1. PRUEBA: AGREGAR PRODUCTO CON IMAGEN
+================================================================================
+
+1. Ve a la pestaña "📦 Productos"
+2. Completa los campos:
+   - Nombre: "Laptop Dell Inspiron"
+   - Descripción: "Laptop de 15 pulgadas i7"
+   - Stock Inicial: 5
+   - Precio Unitario: 1200.50
+   - Unidad Medida: "Unidad"
+   - URL Imagen: https://example.com/laptop.jpg (o deja vacío)
+3. Click "✅ Agregar Producto"
+4. ¡Producto agregado exitosamente!
+
+================================================================================
+2. PRUEBA: BÚSQUEDA CON AUTOCOMPLETADO
+================================================================================
+
+1. Ve a la pestaña "↔️ Movimientos"
+2. En el campo "Producto", escribe: "lap"
+3. ¡Aparecerán sugerencias automáticamente!
+   - Deberías ver: "1 - Laptop Dell Inspiron"
+4. Selecciona el producto (click o Enter)
+
+================================================================================
+3. PRUEBA: VALIDACIONES DE NÚMEROS
+================================================================================
+
+Intenta agregar movimientos con valores inválidos:
+
+❌ Cantidad: "5.5" → Error: "sin decimales"
+❌ Cantidad: "-10" → Error: "mayor a 0"
+❌ Cantidad: "abc" → Error: "número entero válido"
+
+✅ Cantidad: "10" → ¡Funciona!
+
+================================================================================
+4. PRUEBA: DETALLES COMPLETOS DEL PRODUCTO
+================================================================================
+
+1. En la pestaña "📦 Productos"
+2. Haz DOBLE CLICK en la fila del producto "Laptop Dell Inspiron"
+3. ¡Se abre ventana con TODOS los detalles!
+4. Si agregaste URL de imagen, verás el botón "🔗 Ver Imagen"
+
+================================================================================
+5. PRUEBA: REGISTRAR MOVIMIENTO COMPLETO
+================================================================================
+
+1. Pestaña "↔️ Movimientos"
+2. Producto: escribe "lap" y selecciona "Laptop Dell Inspiron"
+3. Tipo: "Salida"
+4. Cantidad: 2
+5. Motivo: "Venta a cliente"
+6. Responsable: "Tú"
+7. Click "✅ Registrar Movimiento"
+8. ¡Movimiento registrado! El stock cambió de 5 a 3
+
+================================================================================
+¡FELICITACIONES! Has probado todas las nuevas funcionalidades:
+================================================================================
+
+✅ Campo opcional de URL de imagen
+✅ Búsqueda inteligente con autocompletado
+✅ Validaciones estrictas de números
+✅ Ventana de detalles con doble click
+✅ Mensajes de error claros
+
+¿Todo funcionó correctamente? ¡La aplicación está lista para usar! 🚀

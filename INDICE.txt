@@ -1,0 +1,435 @@
+================================================================================
+INDICE COMPLETO DE ARCHIVOS
+================================================================================
+
+UBICACION: C:\Users\david\OneDrive\Desktop\TRABAJO\BC\App\
+
+================================================================================
+PARA USUARIOS NUEVOS - COMIENZA AQUI
+================================================================================
+
+1. INICIO_RAPIDO.txt  ← LEE ESTO PRIMERO
+   ├─ Guía de 3 minutos
+   ├─ Paso a paso simple
+   ├─ Agregar primer producto
+   ├─ Registrar primer movimiento
+   └─ 9 pasos para comenzar
+
+2. INICIO.txt
+   ├─ Hola y bienvenida
+   ├─ Qué es el Gestor de Almacenes
+   ├─ Requisitos mínimos
+   ├─ Instrucciones de inicio
+   └─ Para usuarios muy nuevos
+
+3. LOGO_INSTRUCCIONES.txt
+   ├─ Cómo agregar el logo del cocodrilo
+   ├─ Dónde colocar el archivo
+   ├─ Solución de problemas con logo
+   ├─ Verificación visual
+   └─ Requisitos del logo
+
+================================================================================
+PARA USAR LA APLICACION
+================================================================================
+
+SCRIPTS EJECUTABLES:
+
+INSTALAR.bat
+├─ Instala Python, openpyxl, Pillow
+├─ Verifica que todo esté listo
+├─ Haz doble click para ejecutar
+└─ Necesario una sola vez
+
+INICIAR.bat
+├─ Abre la aplicación
+├─ Haz doble click cada vez que quieras usar
+├─ Se abrirá la ventana verde
+└─ La aplicación si corre aquí
+
+CREAR_EJECUTABLE.bat
+├─ Crea GestorAlmacenes.exe
+├─ Para distribución sin Python
+├─ Toma 2-3 minutos
+└─ Opcional
+
+CREAR_ACCESO_DIRECTO.bat
+├─ Crea acceso directo en Desktop
+├─ Para facilitar inicio
+└─ Opcional
+
+================================================================================
+ARCHIVOS DE DATOS
+================================================================================
+
+data/almacen.xlsx  (CRITICO)
+├─ Base de datos principal
+├─ 3 hojas: Productos, Movimientos, Reportes
+├─ Se crea automáticamente
+├─ NO BORRES ESTE ARCHIVO
+├─ Puedes abrirlo en Excel
+└─ Haz copias de respaldo regularmente
+
+templates/plantilla_carga.xlsx
+├─ Plantilla para importación en lote
+├─ Descárgala desde la app
+├─ Llénala con tus datos
+└─ Importa desde la app
+
+logo.png  (OPCIONAL)
+├─ Imagen del logo
+├─ Colócalo en la carpeta raíz
+├─ Se mostrará en el encabezado
+├─ Puede ser JPG (se convierte a PNG)
+└─ Usa convertir_logo.py si no es PNG
+
+================================================================================
+DOCUMENTOS DE AYUDA - SEGUN TU NECESIDAD
+================================================================================
+
+¿Soy usuario nueva y necesito ayuda rápida?
+  → LEE: INICIO_RAPIDO.txt (3 minutos)
+  → LUEGO: INICIO.txt (5 minutos)
+
+¿Necesito saber qué hace la app?
+  → LEE: RESUMEN_FINAL.txt (completo, con ejemplos)
+
+¿Tengo problemas o necesito solución de errores?
+  → LEE: GUIA_INICIO.txt (solución de problemas)
+
+¿Quiero entender la arquitectura?
+  → LEE: ARQUITECTURA.txt (para desarrolladores)
+
+¿Quiero crear ejecutable o distribuir?
+  → LEE: PORTABLE_GUIDE.txt (guía de distribución)
+
+¿Quiero saber qué hacer con el logo?
+  → LEE: LOGO_INSTRUCCIONES.txt (todo sobre logo)
+
+¿No sé cuál archivo leer?
+  → LEE: AYUDA.txt (guía de navegación)
+
+¿Necesito verificar que todo esté instalado?
+  → LEE: CHECKLIST.txt (lista de verificación)
+
+================================================================================
+ARCHIVOS DE CÓDIGO - SOLO SI PROGRAMAS
+================================================================================
+
+main.py
+├─ Interfaz gráfica (tkinter)
+├─ 5 pestañas funcionales
+├─ ~800 líneas
+├─ VERDE configurado
+└─ No modificar a menos que sepas Python
+
+database.py
+├─ Lógica de base de datos
+├─ Manejo de Excel (openpyxl)
+├─ Cálculos de stock
+├─ ~400 líneas
+└─ No modificar a menos que sepas Python
+
+convertir_logo.py
+├─ Convierte imágenes a PNG
+├─ Ejecutar si el logo no es PNG
+├─ Haz doble click para usar
+└─ Opcional
+
+build_portable.py
+├─ Alternativa en Python a CREAR_EJECUTABLE.bat
+├─ Crea el ejecutable
+├─ Para usuarios aventureros
+└─ Opcional
+
+test_example.py
+├─ Pruebas y ejemplo de uso
+├─ Crea datos de muestra
+├─ Para entender cómo funciona
+└─ Opcional ejecutar
+
+================================================================================
+ARCHIVOS DE CONFIGURACION
+================================================================================
+
+requirements.txt
+├─ Dependencias Python necesarias
+├─ openpyxl >= 3.10.1
+├─ Pillow >= 10.0.0
+├─ No modificar
+└─ Usado automáticamente
+
+.venv/
+├─ Carpeta del entorno virtual
+├─ Contiene Python y librerías instaladas
+├─ No borrar
+└─ Se usa automáticamente
+
+================================================================================
+DOCUMENTOS DE REFERENCIA
+================================================================================
+
+RESUMEN_FINAL.txt
+├─ Descripción completa de features
+├─ Ejemplos de uso
+├─ Visual de interfaz
+├─ Consideraciones de seguridad
+├─ Próximos pasos
+└─ Muy completo, lee si quieres todo detallado
+
+GUIA_INICIO.txt
+├─ Paso a paso detallado
+├─ Solución de problemas
+├─ Errores comunes y fixes
+├─ Preguntas frecuentes
+└─ Lee si tienes problemas
+
+ARQUITECTURA.txt
+├─ Descripción técnica
+├─ Estructura de clases
+├─ Flujo de datos
+├─ Explicación de métodos
+└─ Para programadores
+
+PORTABLE_GUIDE.txt
+├─ Cómo crear .exe
+├─ Cómo distribuir
+├─ Opciones de deployment
+├─ Consideraciones de rendimiento
+└─ Para hacer aplicacion portable
+
+AYUDA.txt
+├─ Navegación de documentos
+├─ Quién debería leer qué
+├─ Índice de tópicos
+└─ Guía para encontrar respuestas
+
+CHECKLIST.txt
+├─ Lista de verificación
+├─ Pre-instalación
+├─ Verificación de dependencias
+├─ Pruebas de funcionalidad
+└─ Para asegurar que todo está bien
+
+LOGO_INSTRUCCIONES.txt
+├─ Dónde poner el logo
+├─ Cómo verificarlo
+├─ Solución de problemas
+├─ Requisitos del logo
+└─ Instrucciones visuales
+
+INICIO_RAPIDO.txt  (ESTE DOCUMENTO)
+├─ Guía de 3 minutos
+├─ Para empezar ya
+├─ Pasos simples
+└─ Sin detalles técnicos
+
+================================================================================
+FLUJO RECOMENDADO POR TIPO DE USUARIO
+================================================================================
+
+USER: Usuario que solo quiere usar la app
+  1. Lee: INICIO_RAPIDO.txt (3 min)
+  2. Ejecuta: INSTALAR.bat
+  3. Ejecuta: INICIAR.bat
+  4. Usa: agregas tu primer producto
+  A dudas: consulta GUIA_INICIO.txt
+
+USER: Usuario interesado en los detalles
+  1. Lee: INICIO.txt (5 min)
+  2. Lee: RESUMEN_FINAL.txt (30 min)
+  3. Lee: LOGO_INSTRUCCIONES.txt (si tienes logo)
+  4. Ejecuta: INSTALAR.bat
+  5. Ejecuta: INICIAR.bat
+  A dudas: consulta GUIA_INICIO.txt
+
+USER: Administrador / Power User
+  1. Lee: RESUMEN_FINAL.txt (descripción general)
+  2. Lee: GUIA_INICIO.txt (solución de problemas)
+  3. Lee: CHECKLIST.txt (verificación completa)
+  4. Ejecuta: INSTALAR.bat
+  5. Ejecuta: INICIAR.bat
+  6. (Opcional) Ejecuta: CREAR_EJECUTABLE.bat
+  A dudas: consulta PORTABLE_GUIDE.txt
+
+USER: Desarrollador / Programador
+  1. Lee: README.md (si existe)
+  2. Lee: ARQUITECTURA.txt (diseño técnico)
+  3. Lee: database.py y main.py (código)
+  4. (Opcional) Modifica según necesidades
+  5. (Opcional) Ejecuta: test_example.py
+  A dudas: revisa comentarios en código
+
+USER: Distribuidor / IT
+  1. Lee: PORTABLE_GUIDE.txt (distribución)
+  2. Lee: CHECKLIST.txt (verificación)
+  3. Ejecuta: INSTALAR.bat (tu máquina)
+  4. Ejecuta: CREAR_EJECUTABLE.bat
+  5. Distribuye: dist/GestorAlmacenes.exe a usuarios
+  Beneficio: Usuarios no necesitan Python instalado
+
+================================================================================
+CASOS DE USO COMUNES
+================================================================================
+
+CASO: Acabo de instalar, ¿por dónde empiezo?
+  HACER:
+  1. Haz doble click en INSTALAR.bat
+  2. Haz doble click en INICIAR.bat
+  3. Ve a pestaña Productos
+  4. Agrega tu primer producto
+  LEER si tienes dudas: INICIO_RAPIDO.txt
+
+CASO: La app no abre
+  HACER:
+  1. Ejecuta INSTALAR.bat nuevamente
+  2. Abre GUIA_INICIO.txt - Solución de problemas
+  3. Ejecuta CHECKLIST.txt
+  LEER: GUIA_INICIO.txt - Problemas de apertura
+
+CASO: Quiero usar Excel para cargar datos
+  HACER:
+  1. En app, ve a pestaña Importar/Exportar
+  2. Haz click en [Descargar Plantilla]
+  3. Abre templates/plantilla_carga.xlsx
+  4. Rellena con tus datos
+  5. En la app, click en [Importar desde Excel]
+  LEER: RESUMEN_FINAL.txt - Sección Importación
+
+CASO: Quiero hacer portable para otros
+  HACER:
+  1. Coloca logo.png si tienes (ver LOGO_INSTRUCCIONES.txt)
+  2. Haz doble click en CREAR_EJECUTABLE.bat
+  3. Espera 2-3 minutos
+  4. Distribu  ye dist/GestorAlmacenes.exe
+  LEER: PORTABLE_GUIDE.txt - Distribución
+
+CASO: No aparece el logo
+  HACER:
+  1. Coloca logo.png en la carpeta App
+  2. Si no es PNG, usa convertir_logo.py
+  3. Cierra y re-abre INICIAR.bat
+  LEER: LOGO_INSTRUCCIONES.txt - Solución de problemas
+
+CASO: Necesito respaldar mis datos
+  HACER:
+  1. Cierra la app
+  2. Copia la carpeta App completa a USB/cloud
+  3. También copia data/almacen.xlsx a otro lugar
+  LEER: RESUMEN_FINAL.txt - Sección Copias de seguridad
+
+CASO: Quiero entender cómo funciona
+  HACER:
+  1. Lee RESUMEN_FINAL.txt (descripción feature)
+  2. Lee ARQUITECTURA.txt (explicación técnica)
+  3. Abre database.py y main.py en editor
+  LEER: ARQUITECTURA.txt
+
+================================================================================
+RESUMEN RAPIDO
+================================================================================
+
+OPCION 1: Quiero usar NOW
+  └─ INSTALAR.bat → INICIAR.bat → ¡A trabajar!
+
+OPCION 2: Quiero saber qué es
+  └─ INICIO.txt → RESUMEN_FINAL.txt → INSTALAR.bat → INICIAR.bat
+
+OPCION 3: Tengo problema
+  └─ GUIA_INICIO.txt (Solución de problemas)
+
+OPCION 4: Tengo logo
+  └─ LOGO_INSTRUCCIONES.txt
+
+OPCION 5: Quiero distribuir
+  └─ PORTABLE_GUIDE.txt → CREAR_EJECUTABLE.bat → dist/GestorAlmacenes.exe
+
+OPCION 6: Soy programador
+  └─ ARQUITECTURA.txt → database.py → main.py → Modificaciones
+
+================================================================================
+UBICACION DE ARCHIVOS EN CARPETA
+================================================================================
+
+App/
+├── main.py  (código principal)
+├── database.py  (base de datos)
+├── INICIAR.bat  (abrir app)
+├── INSTALAR.bat  (instalar dependencias)
+├── CREAR_EJECUTABLE.bat  (crear .exe)
+├── CREAR_ACCESO_DIRECTO.bat  (crear atajo)
+├── convertir_logo.py  (convertir imagen a PNG)
+├── build_portable.py  (crear .exe alternativo)
+├── test_example.py  (pruebas)
+├── requirements.txt  (dependencias)
+├── logo.png  (CREA ESTE - tu logo)
+│
+├── INICIO.txt  (bienvenida básica)
+├── INICIO_RAPIDO.txt  (guía 3 minutos) ← COMIENZA AQUI
+├── RESUMEN_FINAL.txt  (descripción completa)
+├── GUIA_INICIO.txt  (paso a paso)
+├── ARQUITECTURA.txt  (técnico)
+├── PORTABLE_GUIDE.txt  (distribución)
+├── LOGO_INSTRUCCIONES.txt  (sobre logo)
+├── AYUDA.txt  (navegación)
+├── CHECKLIST.txt  (verificación)
+├── INDICE.txt  (este archivo)
+│
+├── data/
+│   └── almacen.xlsx  (BASE DE DATOS - NO BORRES)
+├── templates/
+│   └── plantilla_carga.xlsx  (plantilla descargada por usuario)
+│
+└── .venv/  (entorno virtual Python)
+    ├── Scripts/
+    │   └── python.exe
+    └── Lib/
+        └── (librerías: openpyxl, Pillow, etc.)
+
+================================================================================
+NOTAS IMPORTANTES
+================================================================================
+
+1. CARPETA data/
+   ├─ Contiene almacen.xlsx (tu base de datos)
+   ├─ NO BORRES
+   ├─ Haz respaldos regularmente
+   └─ Puedes abrirlo en Excel manualmente
+
+2. NO BORRES:
+   ├─ main.py
+   ├─ database.py
+   ├─ data/ carpeta
+   └─ .venv/ carpeta
+
+3. SI PUEDES ELIMINAR:
+   ├─ .pyc archivos (se regeneran)
+   ├─ __pycache__/ (se regenera)
+   ├─ dist/ (.exe antiguo, puede regenerarse)
+   └─ *.exe antiguo
+
+4. COPIA REGULARMENTE:
+   ├─ data/almacen.xlsx
+   ├─ O la carpeta App completa
+   └─ A otro lugar (USB, Google Drive, etc.)
+
+5. PARA REPORTES:
+   ├─ La app crea reportes en data/almacen.xlsx
+   ├─ Bajo la hoja "Reportes"
+   ├─ Abre con Excel para detalles
+   └─ Expor  ta como PDF si necesitas
+
+================================================================================
+PROXIMOS PASOS
+================================================================================
+
+Ahora que sabes qué hay en cada archivo:
+
+1. Lee INICIO_RAPIDO.txt (3 minutos)
+2. Ejecuta INSTALAR.bat (1 minuto)
+3. Ejecuta INICIAR.bat (la app se abre)
+4. Agrega tu primer movimiento
+
+¡A trabajar!
+
+================================================================================

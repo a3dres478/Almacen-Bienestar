@@ -1,0 +1,237 @@
+================================================================================
+GESTOR DE ALMACENES - GUIA DE INICIO RAPIDO
+================================================================================
+
+¡Bienvenido! Este es un sistema local para gestionar tu almacén usando Excel.
+
+================================================================================
+REQUISITOS
+================================================================================
+
+1. Python 3.7 o superior instalado
+   - Descarga desde: https://www.python.org/downloads/
+   - Importante: Marca "Add Python to PATH" durante la instalacion
+
+2. (Opcional) Visual Studio Code para editar el codigo
+   - Descarga desde: https://code.visualstudio.com/
+
+================================================================================
+INSTALACION - Sigue estos pasos
+================================================================================
+
+OPCION 1: Ejecución Rápida (RECOMENDADO)
+--------
+1. Abre el Explorador de Archivos
+2. Navega a la carpeta de la aplicación
+3. Haz doble click en: INSTALAR.bat
+4. Espera a que termine
+5. Luego haz doble click en: INICIAR.bat
+
+OPCION 2: Línea de Comandos
+--------
+1. Abre una terminal (Command Prompt o PowerShell)
+2. Navega a la carpeta de la aplicación
+3. Ejecuta:
+   python -m pip install openpyxl
+4. Luego ejecuta:
+   python main.py
+
+================================================================================
+ARCHIVO: ALMACEN.XLSX
+================================================================================
+
+Este archivo Excel se crea automáticamente con 3 hojas:
+
+1. "Productos"
+   - Registro de todos los productos del almacén
+   - Columnas: ID, Nombre, Descripción, Stock, Precio, Unidad Medida, Fecha Creación, URL Imagen
+
+2. "Movimientos"
+   - Historial completo de entradas y salidas
+   - Columnas: ID, Fecha, Tipo, Producto, Cantidad, Stock Anterior, Stock Nuevo
+
+3. "Reportes"
+   - Resumen de movimientos por producto
+   - Se genera automáticamente
+
+================================================================================
+ESTRUCTURA DE CARPETAS
+================================================================================
+
+App/
+├── INICIAR.bat          <- Haz click aquí para abrir la aplicación
+├── INSTALAR.bat         <- Haz click aquí para instalar dependencias
+├── main.py              <- Archivo principal (no tocar)
+├── database.py          <- Gestión de datos (no tocar)
+├── run.py               <- Script de ejecución (no tocar)
+├── README.md            <- Documentación completa
+├── GUIA_INICIO.txt      <- Este archivo
+├── requirements.txt     <- Dependencias de Python
+├── data/
+│   └── almacen.xlsx     <- BASE DE DATOS (importante)
+└── templates/
+    └── plantilla_carga.xlsx <- Se crea al descargar plantilla
+
+================================================================================
+PRIMER USO
+================================================================================
+
+1. Ejecuta INICIAR.bat
+2. Se abrirá la ventana principal
+3. Ve a la pestaña "Productos"
+4. Agrega tus primeros productos:
+   - Nombre: (obligatorio)
+   - Descripción: (opcional)
+   - Stock Inicial: cantidad actual (solo números enteros)
+   - Precio Unitario: precio por unidad (número decimal)
+   - Unidad Medida: Unidad, Kg, Caja, etc.
+   - URL Imagen: enlace a foto del producto (opcional)
+5. Haz click en "Agregar Producto"
+
+💡 TIP: Haz DOBLE CLICK en cualquier producto de la tabla para ver todos sus detalles
+
+================================================================================
+OPERACIONES BASICAS
+================================================================================
+
+REGISTRAR UNA ENTRADA:
+1. Pestaña "Movimientos"
+2. ESCRIBE el nombre del producto (aparecerán sugerencias automáticamente)
+3. Tipo: "Entrada"
+4. Ingresa cantidad (solo números enteros positivos)
+5. Motivo: "Compra a Proveedor XYZ"
+6. Responsable: tu nombre
+7. Click "Registrar Movimiento"
+
+⚠️ NOTA: La cantidad debe ser un número entero positivo. No acepta decimales ni símbolos.
+7. Haz click en "Registrar Movimiento"
+
+REGISTRAR UNA SALIDA:
+1. Pestaña "Movimientos"
+2. Selecciona el producto
+3. Tipo: "Salida"
+4. Ingresa cantidad
+5. Motivo: "Venta a Cliente" o "Dañado"
+6. Responsable: tu nombre
+7. Haz click en "Registrar Movimiento"
+
+VER HISTORIAL:
+1. Pestaña "Historial"
+2. Selecciona un producto o elige "Todos"
+3. Se muestra todo el movimiento del producto
+
+GENERAR REPORTES:
+1. Pestaña "Reportes"
+2. Haz click en "Generar Reporte Completo"
+3. Ve el resumen de todos los productos
+4. Opcionalmente exporta a Excel
+
+IMPORTAR PRODUCTOS EN MASA:
+1. Pestaña "Importar/Exportar"
+2. Haz click en "Descargar Plantilla"
+3. Abre el Excel descargado
+4. Completa los datos de los productos
+5. Guarda el archivo
+6. Vuelve a la app, haz click en "Seleccionar Archivo"
+7. Selecciona tu archivo completado
+8. Listo, los productos se agregan automáticamente
+
+================================================================================
+RESGUARDO DE DATOS
+================================================================================
+
+Es importante hacer copias del archivo data/almacen.xlsx regularmente:
+
+1. Copiar todo tu archivo:
+   En la pestaña "Reportes", haz click en "Exportar a Excel"
+   Esto crea una copia de seguridad
+
+2. Hacer backup manual:
+   Copia la carpeta "data" a otro lugar (USB, Google Drive, etc.)
+
+3. Frecuencia recomendada:
+   - Diario si usas mucho
+   - Al menos semanal
+
+================================================================================
+SOLUCIÓN DE PROBLEMAS
+================================================================================
+
+PROBLEMA: "No se puede encontrar Python"
+SOLUCION:
+1. Descarga Python desde https://www.python.org/downloads/
+2. Durante la instalación, MARCA "Add Python to PATH"
+3. Reinicia tu computadora
+4. Intenta nuevamente
+
+PROBLEMA: "ModuleNotFoundError: No module named 'openpyxl'"
+SOLUCION:
+1. Abre una terminal
+2. Ejecuta: pip install openpyxl
+3. Espera a que termine
+4. Intenta iniciar la app de nuevo
+
+PROBLEMA: "El archivo Excel se ve dañado"
+SOLUCION:
+1. Haz una copia de seguridad (copia data/almacen.xlsx a otro lugar)
+2. Cierra la aplicación
+3. Elimina el archivo data/almacen.xlsx
+4. Abre de nuevo la aplicación
+5. Se creará un nuevo archivo limpio
+6. Importa tus productos desde una plantilla
+
+PROBLEMA: "La aplicación se abre y cierra rápido"
+SOLUCION:
+1. Usa INICIAR.bat en lugar de hacer doble click a main.py
+2. Revisa que tkinter esté instalado:
+   - Windows: Ya viene con Python
+   - Mac/Linux: Instala con tu gestor de paquetes
+
+PROBLEMA: "Los cambios no se guardan"
+SOLUCION:
+1. Asegúrate de cerrar correctamente la aplicación
+2. Verifica que el archivo data/almacen.xlsx no esté abierto en Excel
+3. Cierra Excel si está abierto
+4. Reinicia la aplicación
+
+================================================================================
+FUNCIONES PRINCIPALES
+================================================================================
+
+✓ Agregar y gestionar productos
+✓ Registrar entradas y salidas de stock
+✓ Ver historial completo de movimientos
+✓ Generar reportes de almacén
+✓ Exportar datos a Excel
+✓ Importar productos desde archivos Excel
+✓ Cálculo automático de stock
+✓ Registro de responsables en cada movimiento
+✓ Sistema completamente local (sin internet necesario)
+✓ Base de datos en Excel (accesible y editable)
+
+================================================================================
+CONTACTO Y SOPORTE
+================================================================================
+
+Para reportar problemas o sugerencias, verifica:
+1. El archivo README.md (documentación completa)
+2. Este archivo (GUIA_INICIO.txt)
+
+La aplicación está diseñada para ser simple e intuitiva.
+Si tienes dudas, usa los tooltips (textos de ayuda) en la interfaz.
+
+================================================================================
+TIPS IMPORTANTES
+================================================================================
+
+1. SIEMPRE haz backups regularmente
+2. No abras data/almacen.xlsx en Excel mientras la app está corriendo
+3. Registra el motivo en cada movimiento para auditoría
+4. Usa nombre de usuario consistente en "Responsable"
+5. Genera reportes mensuales para verificar inconsistencias
+6. La app es asincrónica (actualiza después de cada evento, no en tiempo real)
+
+================================================================================
+VERSION: 1.0
+FECHA: Abril 2026
+================================================================================

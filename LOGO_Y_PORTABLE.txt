@@ -1,0 +1,127 @@
+================================================================================
+COMO AGREGAR EL LOGO
+================================================================================
+
+Se ha actualizado la aplicación para que sea portable y con interfaz verde.
+
+Para agregar el logo del cocodrilo:
+
+1. DESCARGA LA IMAGEN
+   - La imagen está en los archivos que compartiste
+   - Descárgala como "logo.png"
+
+2. GUARDA EN LA CARPETA CORRECTA
+   - Copia logo.png a: C:\Users\david\OneDrive\Desktop\TRABAJO\BC\App\
+   - La ruta debe ser: App/logo.png
+
+3. VERIFICA QUE FUNCIONA
+   - Ejecuta INICIAR.bat
+   - Deberías ver el logo en la esquina superior izquierda de la aplicación
+
+================================================================================
+HACER APLICACION PORTABLE (OPCIONAL)
+================================================================================
+
+Si quieres crear un ejecutable standalone que no requiera Python:
+
+OPCION 1: Script Automático
+   1. Asegúrate de que logo.png esté en la carpeta App
+   2. Haz doble click en: CREAR_EJECUTABLE.bat
+   3. Espera a que termine (puede tomar 2-3 minutos)
+   4. Obtendrás un archivo: dist/GestorAlmacenes.exe
+
+OPCION 2: Línea de Comandos
+   1. Abre Command Prompt
+   2. Navega a la carpeta App
+   3. Ejecuta:
+      pip install pyinstaller
+      pip install Pillow
+      CREAR_EJECUTABLE.bat
+   4. Se creará dist/GestorAlmacenes.exe
+
+================================================================================
+QUE ES UN EJECUTABLE PORTABLE
+================================================================================
+
+Ventajas:
+✓ No requiere instalar Python
+✓ No requiere instalar dependencias
+✓ Un solo archivo ejecutable
+✓ Se puede distribuir fácilmente
+✓ Funciona en cualquier computadora Windows
+
+Desventajas:
+✕ Archivo más grande (~100-150 MB)
+✕ Tarda un poco más en iniciar
+✕ No se actualiza automáticamente
+
+================================================================================
+COMO DISTRIBUIR EL EJECUTABLE
+================================================================================
+
+Si creaste un ejecutable portable:
+
+1. CONTENIDO A DISTRIBUIR
+   - GestorAlmacenes.exe (el ejecutable)
+   - data/ (carpeta con la base de datos)
+   - templates/ (carpeta con templates)
+   
+   Un usuario podría usar solo el .exe la primera vez,
+   y se crearán automáticamente las carpetas data y templates
+
+2. INSTRUCCIONES PARA EL USUARIO
+   - Descarga GestorAlmacenes.exe
+   - Haz doble click
+   - ¡Listo!
+
+3. ACTUALIZACIONES
+   - Si cambias el código:
+     1. Actualiza los archivos .py
+     2. Ejecuta CREAR_EJECUTABLE.bat de nuevo
+     3. Distribuye el nuevo .exe
+
+================================================================================
+CAMBIOS REALIZADOS
+================================================================================
+
+✓ Interfaz verde profesional
+  - Color primario: Verde oscuro (#1b5e20)
+  - Color secundario: Verde medio (#4caf50)
+  - Color de fondo: Verde muy claro (#f1f8e9)
+
+✓ Logo integrado
+  - Se muestra en el encabezado
+  - Se ajusta automáticamente al tamaño
+
+✓ Mayor portabilidad
+  - Funciona sin Pillow (sin logo)
+  - Script para crear ejecutable
+  - Sin dependencias del sistema
+
+✓ Mejor organización
+  - Archivos .bat para facilitar uso
+  - Scripts de build incluidos
+  - Documentación clara
+
+================================================================================
+COLORES VERDES UTILIZADOS
+================================================================================
+
+Verde Oscuro       #1b5e20     - Encabezado y botones
+Verde Medio        #4caf50     - Botones activos
+Verde Claro        #81c784     - Pestañas
+Verde Muy Claro    #c8e6c9     - Fondo
+Verde Fondo        #f1f8e9     - Fondo general
+
+Todos los colores se alinean con Google Material Design Green
+
+================================================================================
+PROXIMOS PASOS
+================================================================================
+
+1. Coloca logo.png en la carpeta App
+2. Ejecuta INICIAR.bat para verificar
+3. (Opcional) Crea ejecutable con CREAR_EJECUTABLE.bat
+4. ¡Disfruta tu gestor de almacenes verde!
+
+================================================================================

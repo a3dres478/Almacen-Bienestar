@@ -1,0 +1,262 @@
+================================================================================
+GESTOR DE ALMACENES - APLICACION LOCAL LISTA PARA USAR
+================================================================================
+
+¡LISTO! Tu aplicación está completamente instalada y lista para usar.
+
+================================================================================
+COMO INICIAR LA APLICACION
+================================================================================
+
+OPCION 1: DOBLE CLICK (más fácil)
+  1. Haz doble click en: INICIAR.bat
+  2. ¡La aplicación se abrirá automáticamente!
+
+OPCION 2: Línea de Comandos
+  1. Abre Command Prompt o PowerShell
+  2. Navega a esta carpeta
+  3. Ejecuta: python main.py
+
+OPCION 3: Crear acceso directo en escritorio
+  1. Haz doble click en: CREAR_ACCESO_DIRECTO.bat
+  2. Se creará un acceso directo en tu escritorio
+  3. Luego solo haz doble click en el escritorio para abrir
+
+================================================================================
+ARCHIVOS IMPORTANTES
+================================================================================
+
+INICIAR.bat              Usa esto para abrir la aplicación
+INSTALAR.bat             Usa esto si tienes problemas de dependencias
+GUIA_INICIO.txt          Este archivo - Documentación práctica
+README.md                Documentación completa y técnica
+main.py                  Código de la aplicación (no editar)
+database.py              Código de base de datos (no editar)
+data/almacen.xlsx        Tu base de datos (IMPORTANTE - hacer backup)
+
+================================================================================
+LO QUE PUEDE HACER LA APLICACION
+================================================================================
+
+✓ Agregar productos con nombre, descripción, precio y stock
+✓ Registrar entradas y salidas de productos (con motivo y responsable)
+✓ Ver historial completo de movimientos
+✓ Generar reportes automáticos
+✓ Exportar todo a Excel
+✓ Importar productos desde Excel en lote
+✓ Calcular automáticamente el stock disponible
+✓ Ver valor total del inventario
+✓ Sistema completamente local (funciona sin internet)
+
+================================================================================
+GUIA DE USO BASICA
+================================================================================
+
+PRIMER PASO: Agregar Productos
+  1. Abre la aplicación (INICIAR.bat)
+  2. Ve a la pestaña "Productos"
+  3. Completa:
+     - Nombre: "Laptop" (obligatorio)
+     - Descripción: "Laptop Dell 15 i7" (opcional)
+     - Stock Inicial: "10" (es un número)
+     - Precio: "1200" (es un número)
+     - Unidad Medida: "Unidad" ó "Kg" ó "Caja"
+  4. Click en "Agregar Producto"
+
+SEGUNDO PASO: Registrar una Entrada
+  1. Ve a la pestaña "Movimientos"
+  2. Selecciona el producto que recibiste
+  3. Tipo: "Entrada"
+  4. Cantidad: cuánto recibiste
+  5. Motivo: "Compra a Proveedor XYZ"
+  6. Responsable: tu nombre
+  7. Click en "Registrar Movimiento"
+  El stock se actualiza automáticamente!
+
+TERCER PASO: Registrar una Salida
+  1. Ve a la pestaña "Movimientos"
+  2. Selecciona el producto que vendiste
+  3. Tipo: "Salida"
+  4. Cantidad: cuánto vendiste
+  5. Motivo: "Venta a Cliente ABC"
+  6. Responsable: tu nombre
+  7. Click en "Registrar Movimiento"
+  El stock se actualiza automáticamente!
+
+CUARTO PASO: Ver Historial
+  1. Ve a la pestaña "Historial"
+  2. Selecciona un producto ó "Todos"
+  3. Verás todo el historial de movimientos de ese producto
+
+QUINTO PASO: Generar Reportes
+  1. Ve a la pestaña "Reportes"
+  2. Click en "Generar Reporte Completo"
+  3. Verás el resumen de todos los productos
+  4. Puedes exportar a Excel si quieres guardar una copia
+
+================================================================================
+PREGUNTAS FRECUENTES
+================================================================================
+
+P: ¿Necesito estar conectado a internet?
+R: NO. Esta es una aplicación completamente local.
+
+P: ¿Dónde están guardados mis datos?
+R: En el archivo: data/almacen.xlsx
+   Este archivo es un Excel normal que puedes abrir con cualquier programa.
+
+P: ¿Qué pasa si cierro la aplicación?
+R: Tus datos se guardan automáticamente. No pierdes nada.
+
+P: ¿Puedo tener múltiples usuarios?
+R: Sí. Registra el nombre de usuario en "Responsable" en cada movimiento.
+
+P: ¿Cómo hago backup de mis datos?
+R: Copia la carpeta "data" a otro lugar (USB, Google Drive, etc.)
+   O usa la opción "Exportar a Excel" en Reportes.
+
+P: ¿Qué pasa si cometo un error?
+R: Verifica que el stock no sea incorrecto.
+   Puedes registrar un movimiento de corrección con motivo "Corrección".
+
+P: ¿Puedo importar productos desde Excel?
+R: Sí!
+   1. Ve a "Importar/Exportar"
+   2. "Descargar Plantilla" - complétala en Excel
+   3. "Seleccionar Archivo" - sube tu Excel
+   4. Los productos se agregan automáticamente
+
+P: ¿Puedo editar los datos en Excel directamente?
+R: Es mejor no hacerlo. Usa la aplicación.
+   Si editas Excel, cierra la app primero y luego abre la app de nuevo.
+
+P: ¿Qué significa "asincrónico"?
+R: Significa que el stock se actualiza después de cada movimiento,
+   no en tiempo real. Perfecto para almacenes pequeños.
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+PROBLEMA: "No se abre nada al hacer click en INICIAR.bat"
+SOLUCION:
+  1. Asegúrate de que Python esté instalado
+  2. Haz doble click en INSTALAR.bat primero
+  3. Luego intenta nuevamente con INICIAR.bat
+
+PROBLEMA: "ModuleNotFoundError"
+SOLUCION:
+  1. Haz doble click en INSTALAR.bat
+  2. Espera a que instale openpyxl
+  3. Intenta de nuevo
+
+PROBLEMA: "El programa se abre y se cierra rápido"
+SOLUCION:
+  Haz doble click en INSTALAR.bat, que verifique e instale todo
+
+PROBLEMA: "Los datos no se guardan"
+SOLUCION:
+  1. Asegúrate de cerrar correctamente la aplicación
+  2. No tengas el archivo data/almacen.xlsx abierto en Excel
+  3. Si Excel estaba abierto, ciérralo y reinicia la app
+
+PROBLEMA: "Error al importar Excel"
+SOLUCION:
+  1. Descarga la plantilla desde la app (Importar/Exportar - Descargar)
+  2. Complétala en Excel con datos válidos
+  3. Intenta importar de nuevo
+
+================================================================================
+MANTENIMIENTO
+================================================================================
+
+DIARIO:
+  - Usa la aplicación normalmente
+  - Registra tus movimientos
+
+SEMANAL:
+  - Genera un reporte (Reportes - Generar Reporte Completo)
+  - Verifica que los números sean correctos
+
+MENSUAL:
+  - Haz un backup: Copia la carpeta "data" a otro lugar
+  - O: Exporta a Excel desde Reportes
+  - Revisa la plantilla de historial
+
+TRIMESTRAL:
+  - Analiza los reportes para tendencias
+  - Verifica el valor total del inventario
+
+================================================================================
+DATOS TECNICOS
+================================================================================
+
+Lenguaje: Python 3.10+
+Interfaz: Tkinter (incluido con Python)
+Base de Datos: Excel (openpyxl)
+Tipo: Aplicación de escritorio local
+Sistema Operativo: Windows (principalmente)
+Requisito: Python instalado
+Dependencia: openpyxl (se instala automáticamente)
+
+================================================================================
+PROXIMOS PASOS
+================================================================================
+
+1. Lee GUIA_INICIO.txt para más detalles
+2. Lee README.md si quieres documentación técnica
+3. Comienza a agregar tus productos
+4. Registra tus primeros movimientos
+5. Genera un reporte para ver cómo funciona
+6. Haz copias de seguridad regularmente
+
+================================================================================
+NOTAS IMPORTANTES
+================================================================================
+
+* Haz SIEMPRE copias de seguridad de data/almacen.xlsx
+* No abras el archivo Excel mientras la app está corriendo
+* Sé consistente con los nombres de responsables para auditoría
+* Usa esta aplicación para almacenes pequeños (óptimo: 100-5000 productos)
+* Para almacenes muy grandes, considera una BD en servidor
+
+================================================================================
+SOPORTE
+================================================================================
+
+Si tienes problemas:
+1. Lee GUIA_INICIO.txt
+2. Lee README.md
+3. Verifica que Python esté instalado correctamente
+4. Ejecuta INSTALAR.bat para reinstalar dependencias
+5. Intenta nuevamente
+
+Para reportar bugs o sugerir mejoras, documenta:
+- ¿Qué deseas hacer?
+- ¿Qué sucedió?
+- ¿Qué error recibiste?
+- Captura de pantalla si es posible
+
+================================================================================
+VERSION Y CREDITOS
+================================================================================
+
+Versión: 1.0
+Fecha: Abril 2026
+Propósito: Gestión simple de almacenes locales
+Estado: Funcional y listo para producción
+
+Características:
+- 5 módulos principales
+- Interface intuitiva
+- Datos en Excel (accesible)
+- Sistema asincrónico (perfecto para almacenes pequeños)
+- Sin necesidad de servidor
+- Backup fácil
+
+================================================================================
+
+¡Listo! Comienza a usar tu Gestor de Almacenes.
+Haz doble click en INICIAR.bat
+
+================================================================================

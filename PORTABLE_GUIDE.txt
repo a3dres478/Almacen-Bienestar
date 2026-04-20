@@ -1,0 +1,270 @@
+================================================================================
+GESTOR DE ALMACENES v2.0 - PORTABLE Y VERDE
+================================================================================
+
+¡Actualización completada! La aplicación ahora es:
+
+✓ PORTABLE - Se puede distribuir como ejecutable único
+✓ VERDE - Interfaz profesional con colores verdes
+✓ CON LOGO - Integración de imagen del cocodrilo
+
+================================================================================
+CARACTERISTICAS NUEVAS
+================================================================================
+
+1. INTERFAZ VERDE PROFESIONAL
+   - Encabezado verde oscuro con logo
+   - Botones verdes que cambian al hacer hover
+   - Pestañas verdes claras
+   - Fondo verde muy suave
+
+2. LOGO DEL COCODRILO
+   - Se muestra en el encabezado de la aplicación
+   - Se redimensiona automáticamente
+   - Tu marca en la interfaz
+
+3. PORTABILIDAD MEJORADA
+   - Script para crear ejecutable standalone (.exe)
+   - Sin necesidad de instalar Python en la máquina del usuario
+   - Un único archivo para distribuir
+
+4. MEJOR COMPATIBILIDAD
+   - Funciona con o sin Pillow
+   - Funciona con o sin logo
+   - Fallback elegante si falta una dependencia
+
+================================================================================
+COMO USAR
+================================================================================
+
+PASO 1: INSTALAR DEPENDENCIAS (una sola vez)
+  Haz doble click en: INSTALAR.bat
+  Esto instala openpyxl y Pillow
+
+PASO 2: AGREGAR LOGO (opcional)
+  - Opción A: Coloca logo.png en la carpeta App
+  - Opción B: Haz doble click en convertir_logo.py si la imagen está en otro formato
+
+PASO 3: EJECUTAR LA APLICACION
+  Haz doble click en: INICIAR.bat
+  ¡O simplemente ejecuta: python main.py
+
+PASO 4: CREAR EJECUTABLE (opcional, para distribuir)
+  Haz doble click en: CREAR_EJECUTABLE.bat
+  Se creará dist/GestorAlmacenes.exe (archivo portable)
+
+================================================================================
+COMO CREAR EJECUTABLE PORTABLE
+================================================================================
+
+Hay 2 formas:
+
+OPCION 1: Automática (recomendado)
+  1. Abre CREAR_EJECUTABLE.bat
+  2. Espera a que termine (puede tomar 2-3 minutos)
+  3. El ejecutable estará en: dist/GestorAlmacenes.exe
+
+OPCION 2: Manual (si OPCION 1 no funciona)
+  1. Abre Command Prompt
+  2. Navega a la carpeta App
+  3. Ejecuta:
+     pip install pyinstaller
+     pyinstaller --onefile --windowed --name=GestorAlmacenes ^
+         --hidden-import=openpyxl --hidden-import=PIL ^
+         --add-data "data;data" --add-data "templates;templates" ^
+         --add-data "logo.png;." main.py
+  4. Encontrarás el .exe en: dist/GestorAlmacenes.exe
+
+================================================================================
+DISTRIBUCION DEL EJECUTABLE
+================================================================================
+
+Una vez que hayas creado el .exe:
+
+CONTENIDO PARA DISTRIBUIR:
+  - GestorAlmacenes.exe (el programa)
+  - data/ (se crea automáticamente si no existe)
+  - templates/ (se crea automáticamente si no existe)
+
+INSTRUCCIONES PARA EL USUARIO FINAL:
+  1. Descarga GestorAlmacenes.exe
+  2. Haz doble click
+  3. ¡Listo! La aplicación se abrirá
+
+VENTAJAS DEL EJECUTABLE:
+  ✓ No requiere instalar Python
+  ✓ No requiere instalar dependencias
+  ✓ Un solo archivo ejecutable
+  ✓ Funciona en cualquier Windows
+  ✓ Se vende como una aplicación profesional
+
+================================================================================
+COLORES UTILIZADOS (Tonos Verdes)
+================================================================================
+
+Paleta de colores profesional:
+
+Verde Oscuro     #1b5e20    - Usado en encabezado, botones principales
+Verde Medio      #4caf50    - Usado en botones, pestañas activas
+Verde Claro      #81c784    - Usado en pestañas, hover
+Verde Muy Claro  #c8e6c9    - Usado en scrollbars, fondos secundarios
+Verde Fondo      #f1f8e9    - Usado en fondo general
+Blanco           #ffffff    - Usado en texto sobre fondos oscuros
+Texto            #1b5e20    - Verde oscuro para texto legible
+
+Todos estos colores siguen el Material Design de Google para asegurar:
+✓ Contraste suficiente para accesibilidad
+✓ Armonía visual profesional
+✓ Consistencia en toda la aplicación
+
+================================================================================
+ARCHIVOS NUEVOS Y MODIFICADOS
+================================================================================
+
+NUEVOS:
+  - CREAR_EJECUTABLE.bat        Script para crear ejecutable
+  - build_portable.py           Script Python para build (alternativo)
+  - convertir_logo.py           Conversor de imagen a PNG
+  - LOGO_Y_PORTABLE.txt         Guía integración logo
+  - PORTABLE_GUIDE.txt          Esta guía
+
+MODIFICADOS:
+  - main.py                     Agregados colores verdes, logo, tolerancia a Pillow
+  - INSTALAR.bat                Ahora instala también Pillow
+  - requirements.txt            Agregado Pillow
+
+NO MODIFICADOS:
+  - database.py                 (sin cambios)
+  - INICIAR.bat                 (sin cambios importantes)
+  - data/almacen.xlsx           (sin cambios)
+
+================================================================================
+REQUISITOS DIFERENTES
+================================================================================
+
+PARA DESARROLLADOR (Desarrollo):
+  - Python 3.10+
+  - openpyxl
+  - Pillow (opcional, para logo)
+  - PyInstaller (solo si quieres crear ejecutable)
+
+PARA USUARIO FINAL (Con ejecutable):
+  - Sistema Windows
+  - Nada más! El .exe incluye todo
+
+PARA USUARIO FINAL (Sin ejecutable):
+  - Python 3.7+
+  - openpyxl
+  - Pillow (opcional)
+
+================================================================================
+PROXIMOS PASOS
+================================================================================
+
+PASO 1: Prueba la aplicación
+  - Ejecuta INSTALAR.bat
+  - Ejecuta INICIAR.bat
+  - Verifica que todo funciona
+
+PASO 2: Integra el logo
+  - Coloca logo.png en la carpeta
+  - Ejecuta INICIAR.bat nuevamente
+  - Deberías ver el logo en el encabezado
+
+PASO 3: Crea ejecutable (opcional)
+  - Ejecuta CREAR_EJECUTABLE.bat
+  - Espera a que termine
+  - Prueba dist/GestorAlmacenes.exe
+
+PASO 4: Distribuye
+  - Comparte el .exe con tus usuarios
+  - Ellos solo hacen doble click
+  - ¡Listo!
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+PROBLEMA: El logo no aparece
+SOLUCION:
+  1. Verifica que logo.png esté en la carpeta App
+  2. Verifica que sea formato PNG
+  3. Reinstala Pillow: pip install --upgrade Pillow
+  4. Reinicia INICIAR.bat
+
+PROBLEMA: CREAR_EJECUTABLE.bat no funciona
+SOLUCION:
+  1. Abre Command Prompt como administrador
+  2. Navega a la carpeta App
+  3. Ejecuta: pip install pyinstaller
+  4. Intenta nuevamente CREAR_EJECUTABLE.bat
+
+PROBLEMA: El ejecutable es demasiado grande
+EXPLICACION:
+  Es normal. PyInstaller empaqueta Python + todas las librerías (100-150 MB)
+
+PROBLEMA: El ejecutable tarda en abrir
+EXPLICACION:
+  Es normal la primera vez. Luego se cachea y es más rápido.
+
+================================================================================
+COMPARATIVA DE DISTRIBUCIN
+================================================================================
+
+                          Con Ejecutable    Sin Ejecutable
+Usuario necesita:         Nada              Python + openpyxl
+Tamaño a distribuir:      ~120 MB           Códigos + datos
+Facilidad de uso:         Muy Fácil         Fácil
+Actualización:            Crear nuevo .exe  Copiar nuevos .py
+Portabilidad:             Perfecta          Buena
+Profesionalidad:          Muy Alta          Normal
+
+================================================================================
+SOPORTE TÉCNICO
+================================================================================
+
+Si tienes problemas:
+
+1. Lee LOGO_Y_PORTABLE.txt (guía específica)
+2. Lee ARQUITECTURA.txt (estructura interna)
+3. Revisa los archivos .bat (scripts de instalación)
+4. Intenta ejecutar convertir_logo.py para el logo
+5. Asegúrate de que Python esté en PATH
+
+Comandos útiles para diagnosticar:
+  python --version              Ver versión de Python
+  pip list                      Ver paquetes instalados
+  pip install --upgrade openpyxl  Actualizar openpyxl
+  pip install --upgrade Pillow  Actualizar Pillow
+
+================================================================================
+VERSION E HISTORIAL
+================================================================================
+
+v1.0 (Original)
+  - Funcionalidad base de almacén
+  - Interfaz simple
+  - Base de datos en Excel
+
+v2.0 (Actual)
+  - NUEVOS: Colores verdes profesionales
+  - NUEVOS: Logo integrado
+  - NUEVOS: Capacidad de ejecutable portable
+  - MEJORADO: Compatibilidad mejor
+  - MEJORADO: Documentación completa
+
+================================================================================
+CONCLUSION
+================================================================================
+
+¡Tu aplicación Gestor de Almacenes ahora es:
+
+✓ PROFESIONAL - Con colores verdes coordinados y logo
+✓ PORTABLE - Se puede distribuir como ejecutable único
+✓ ROBUSTO - Funciona con o sin Pillow
+✓ DOCUMENTADO - Guías completas para cada aspecto
+✓ LISTO PARA PRODUCCION - Puede ser usado por clientes
+
+¡Felicitaciones! Tienes una solución completa de gestión de almacenes.
+
+================================================================================
