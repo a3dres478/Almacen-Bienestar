@@ -1014,6 +1014,16 @@ class GestorAlmacenesUI:
             resultado = reiniciar_periodo(ruta_excel, carpeta)
 
             if resultado:
+                # Refrescar toda la UI para reflejar el reinicio inmediatamente.
+                self._actualizar_lista_productos()
+                self._cargar_historial_rapido()
+                self._mostrar_todo_historial()
+                self.combo_filtro.set("")
+                self.combo_producto.set("")
+                self.combo_tipo.set("")
+                self.entry_cantidad.delete(0, tk.END)
+                self.entry_motivo.delete(0, tk.END)
+                self.combo_responsable.current(0)
                 messagebox.showinfo("Éxito", "Periodo reiniciado correctamente")
             else:
                 messagebox.showerror("Error", "No se pudo reiniciar el periodo")
