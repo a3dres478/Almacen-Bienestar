@@ -9,8 +9,130 @@ from tkinter import ttk, messagebox, filedialog, scrolledtext
 import os
 import sys
 import shutil
+from openpyxl import Workbook
+from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 
-# --- Diálogo personalizado de tres opciones ---
+# --- Función para generar plantilla base automáticamente ---
+def generar_plantilla_base_si_no_existe(ruta_destino):
+    """
+    Genera automáticamente el archivo plantilla_base.xlsx si no existe.
+    
+    Esta función es crítica para que el programa funcione correctamente
+    cuando se distribuye como .exe sin archivos adicionales.
+    
+    Args:
+        ruta_destino (str): Ruta donde guardar plantilla_base.xlsx
+    
+    Returns:
+        bool: True si se creó exitosamente o ya existía, False si hubo error
+    """
+    # Si ya existe, no hacer nada
+    if os.path.exists(ruta_destino):
+        return True
+    
+    try:
+        # Crear nuevo workbook
+        wb = Workbook()
+        
+        # Definir estilos para encabezados (verde oscuro como el programa)
+        header_fill = PatternFill(start_color="1b5e20", end_color="1b5e20", fill_type="solid")
+        header_font = Font(bold=True, color="FFFFFF")
+        header_alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+        border = Border(
+            left=Side(style='thin'),
+            right=Side(style='thin'),
+            top=Side(style='thin'),
+            bottom=Side(style='thin')
+        )
+        
+        # ============================================
+        # HOJA 1: PRODUCTOS
+        # ============================================
+        ws_productos = wb.active
+        ws_productos.title = "Productos"
+        
+        headers_productos = ["ID", "Nombre", "Descripción", "Stock", "Unidad de Medida", "Fecha de Creación", "URL Imagen"]
+        ws_productos.append(headers_productos)
+        
+        for cell in ws_productos[1]:
+            cell.fill = header_fill
+            cell.font = header_font
+            cell.alignment = header_alignment
+            cell.border = border
+        
+        ws_productos.column_dimensions['A'].width = 8
+        ws_productos.column_dimensions['B'].width = 25
+        ws_productos.column_dimensions['C'].width = 30
+        ws_productos.column_dimensions['D'].width = 12
+        ws_productos.column_dimensions['E'].width = 18
+        ws_productos.column_dimensions['F'].width = 18
+        ws_productos.column_dimensions['G'].width = 30
+        
+        # ============================================
+        # HOJA 2: MOVIMIENTOS
+        # ============================================
+        ws_movimientos = wb.create_sheet("Movimientos")
+        
+        headers_movimientos = [
+            "ID", 
+            "ID Producto", 
+            "Nombre Producto",
+            "Tipo", 
+            "Cantidad", 
+            "Stock Anterior", 
+            "Stock Nuevo", 
+            "Motivo", 
+            "Responsable", 
+            "Fecha"
+        ]
+        ws_movimientos.append(headers_movimientos)
+        
+        for cell in ws_movimientos[1]:
+            cell.fill = header_fill
+            cell.font = header_font
+            cell.alignment = header_alignment
+            cell.border = border
+        
+        ws_movimientos.column_dimensions['A'].width = 8
+        ws_movimientos.column_dimensions['B'].width = 12
+        ws_movimientos.column_dimensions['C'].width = 25
+        ws_movimientos.column_dimensions['D'].width = 12
+        ws_movimientos.column_dimensions['E'].width = 12
+        ws_movimientos.column_dimensions['F'].width = 15
+        ws_movimientos.column_dimensions['G'].width = 15
+        ws_movimientos.column_dimensions['H'].width = 20
+        ws_movimientos.column_dimensions['I'].width = 20
+        ws_movimientos.column_dimensions['J'].width = 15
+        
+        # ============================================
+        # HOJA 3: REPORTES
+        # ============================================
+        ws_reportes = wb.create_sheet("Reportes")
+        
+        headers_reportes = ["Fecha de Reporte", "Total Productos", "Total Movimientos", "Stock Total Valor"]
+        ws_reportes.append(headers_reportes)
+        
+        for cell in ws_reportes[1]:
+            cell.fill = header_fill
+            cell.font = header_font
+            cell.alignment = header_alignment
+            cell.border = border
+        
+        ws_reportes.column_dimensions['A'].width = 20
+        ws_reportes.column_dimensions['B'].width = 20
+        ws_reportes.column_dimensions['C'].width = 20
+        ws_reportes.column_dimensions['D'].width = 20
+        
+        # Guardar el archivo
+        wb.save(ruta_destino)
+        print(f"✅ Plantilla base generada automáticamente en: {ruta_destino}")
+        return True
+        
+    except Exception as e:
+        print(f"❌ Error al generar plantilla base: {e}")
+        return False
+
+
 def dialogo_tres_opciones(parent, titulo, mensaje, opcion1="Sí", opcion2="No", opcion3="Agregar de todas formas"):
     """
     Muestra un diálogo modal con tres botones personalizados.
@@ -382,6 +504,21 @@ class GestorAlmacenesUI:
         self.ruta_recursos = self._obtener_ruta_recursos()
         self.imagen_logo = None
         
+        # Crear automáticamente la carpeta backups en la primera ejecución
+        carpeta_backups = os.path.join(self.ruta_base, "backups")
+        if not os.path.exists(carpeta_backups):
+            try:
+                os.makedirs(carpeta_backups, exist_ok=True)
+                print(f"✅ Carpeta 'backups' creada automáticamente en: {carpeta_backups}")
+            except Exception as e:
+                print(f"⚠️ No se pudo crear la carpeta 'backups': {e}")
+        
+        # Generar automáticamente plantilla_base.xlsx si no existe
+        # CRÍTICO: Esto permite que el programa funcione cuando solo se distribuye el .exe
+        ruta_plantilla = os.path.join(self.ruta_base, "plantilla_base.xlsx")
+        if not generar_plantilla_base_si_no_existe(ruta_plantilla):
+            print(f"⚠️ No se pudo generar la plantilla base. El programa puede no funcionar correctamente.")
+        
         try:
             # Inicializar base de datos en ruta persistente
             ruta_bd = os.path.join(self.ruta_base, "data", "almacen.xlsx")
@@ -401,16 +538,46 @@ class GestorAlmacenesUI:
             self.root.destroy()
 
     def _obtener_ruta_datos_persistente(self):
-        """Retorna la carpeta donde deben guardarse datos entre reinicios."""
+        """
+        Retorna la carpeta donde deben guardarse datos entre reinicios.
+        
+        DIFERENCIA ENTRE MODOS:
+        - Modo .exe (ejecutable compilado): Retorna el directorio del ejecutable (sys.executable)
+          Esto es importante para que los backups y datos se guarden en la misma carpeta que el .exe
+          
+        - Modo Python (script directo): Retorna el directorio del script (__file__)
+          Esto permite desarrollar y probar el programa desde cualquier ubicación
+        
+        Returns:
+            str: Ruta a la carpeta de datos persistentes
+        """
         if getattr(sys, "frozen", False):
-            # En ejecutable portable, guardar junto al .exe
+            # Modo .exe: sys.executable apunta al .exe compilado
+            # Los datos se guardan junto al ejecutable
             return os.path.dirname(sys.executable)
+        
+        # Modo Python: Se guardan en el directorio del script
         return os.path.dirname(os.path.abspath(__file__))
 
     def _obtener_ruta_recursos(self):
-        """Retorna la carpeta de recursos embebidos (modo PyInstaller) o local."""
+        """
+        Retorna la carpeta de recursos embebidos (modo PyInstaller) o local.
+        
+        DIFERENCIA ENTRE MODOS:
+        - Modo .exe (PyInstaller): sys._MEIPASS apunta a la carpeta temporal con los recursos embebidos
+          PyInstaller extrae los archivos embebidos a esta carpeta temporal
+          
+        - Modo Python (script directo): Retorna el directorio del script
+          Los recursos están en el mismo directorio que el script
+        
+        Returns:
+            str: Ruta a la carpeta de recursos
+        """
         if hasattr(sys, "_MEIPASS"):
+            # Modo .exe: PyInstaller ha embebido los recursos en _MEIPASS
             return sys._MEIPASS
+        
+        # Modo Python: Los recursos están en el directorio del script
         return os.path.dirname(os.path.abspath(__file__))
 
     def _preparar_base_datos_inicial(self, ruta_bd_destino):
@@ -992,44 +1159,115 @@ class GestorAlmacenesUI:
 
     # BACKUP
     def _reiniciar_periodo_desde_ui(self):
-        from tkinter import messagebox, filedialog
-        from backup_utils import reiniciar_periodo
+        """
+        Reinicia el periodo haciendo backup automático del archivo actual y restaurando desde plantilla base.
+        
+        FUNCIONAMIENTO:
+        - Modo .exe (ejecutable): Las rutas se resuelven desde la ubicación del .exe
+        - Modo Python: Las rutas se resuelven desde el directorio del script
+        
+        En ambos casos, busca plantilla_base.xlsx en la ruta_base y la copia para restaurar
+        el archivo de almacén a un estado limpio.
+        """
+        from tkinter import messagebox
+        import shutil
+        import os
+        from datetime import datetime
 
+        # Mostrar mensaje de confirmación
         confirmar = messagebox.askyesno(
-            "Confirmar",
-            "⚠️ Esta acción eliminará los datos operativos.\n\n¿Deseas continuar?"
+            "Confirmar Reinicio de Periodo",
+            "⚠️ Esta acción hará backup automático del archivo Excel actual en la carpeta 'backups' "
+            "y lo reemplazará con una copia limpia desde la plantilla base.\n\n"
+            "El archivo anterior se guardará con fecha y hora.\n\n"
+            "¿Deseas continuar?"
         )
 
         if not confirmar:
             return
 
-        carpeta = filedialog.askdirectory(title="Selecciona carpeta para respaldo")
-
-        if not carpeta:
-            return
-
         try:
-            ruta_excel = "data/almacen.xlsx"
+            # Definir rutas usando self.ruta_base (ubicación del ejecutable o del script)
+            # Esto funciona tanto en modo .exe como en modo Python
+            ruta_excel_actual = os.path.join(self.ruta_base, "data", "almacen.xlsx")
+            ruta_plantilla = os.path.join(self.ruta_base, "plantilla_base.xlsx")
+            carpeta_backups = os.path.join(self.ruta_base, "backups")
 
-            resultado = reiniciar_periodo(ruta_excel, carpeta)
+            # Verificar que la carpeta backups existe (debería haber sido creada en __init__)
+            if not os.path.exists(carpeta_backups):
+                try:
+                    os.makedirs(carpeta_backups, exist_ok=True)
+                except Exception as e:
+                    messagebox.showerror("Error", f"No se pudo crear la carpeta 'backups': {str(e)}")
+                    return
 
-            if resultado:
-                # Refrescar toda la UI para reflejar el reinicio inmediatamente.
-                self._actualizar_lista_productos()
-                self._cargar_historial_rapido()
-                self._mostrar_todo_historial()
-                self.combo_filtro.set("")
-                self.combo_producto.set("")
-                self.combo_tipo.set("")
-                self.entry_cantidad.delete(0, tk.END)
-                self.entry_motivo.delete(0, tk.END)
-                self.combo_responsable.current(0)
-                messagebox.showinfo("Éxito", "Periodo reiniciado correctamente")
-            else:
-                messagebox.showerror("Error", "No se pudo reiniciar el periodo")
+            # Verificar si existe el archivo Excel actual
+            if not os.path.exists(ruta_excel_actual):
+                messagebox.showerror("Error", "No se encontró el archivo Excel actual (data/almacen.xlsx)")
+                return
+
+            # Generar nombre único para el backup con fecha y hora
+            fecha_hora = datetime.now().strftime("%Y-%m-%d_%H-%M")
+            nombre_backup = f"inventario_backup_{fecha_hora}.xlsx"
+            ruta_backup = os.path.join(carpeta_backups, nombre_backup)
+
+            # Verificar si el archivo de backup ya existe (aunque es improbable)
+            if os.path.exists(ruta_backup):
+                messagebox.showerror("Error", f"Ya existe un archivo de backup con ese nombre: {ruta_backup}")
+                return
+
+            # Intentar mover el archivo actual al backup
+            try:
+                shutil.move(ruta_excel_actual, ruta_backup)
+                print(f"✅ Backup creado exitosamente: {ruta_backup}")
+            except PermissionError:
+                messagebox.showerror("Error", "El archivo Excel está abierto o bloqueado. Ciérralo e intenta nuevamente.")
+                return
+            except Exception as e:
+                messagebox.showerror("Error", f"Error al crear backup: {str(e)}")
+                return
+
+            # Verificar si existe la plantilla base
+            # Si no existe, intentar generarla automáticamente
+            if not os.path.exists(ruta_plantilla):
+                print(f"⚠️ No se encontró plantilla_base.xlsx en {ruta_plantilla}, intentando generarla...")
+                if not generar_plantilla_base_si_no_existe(ruta_plantilla):
+                    # Si no se puede generar, restaurar el archivo original desde el backup
+                    try:
+                        shutil.move(ruta_backup, ruta_excel_actual)
+                    except:
+                        pass
+                    messagebox.showerror("Error", "No se pudo generar la plantilla base. El archivo original ha sido restaurado.")
+                    return
+
+            # Copiar la plantilla base al lugar del archivo principal
+            try:
+                shutil.copy2(ruta_plantilla, ruta_excel_actual)
+                print(f"✅ Plantilla base copiada exitosamente a: {ruta_excel_actual}")
+            except Exception as e:
+                # Intentar restaurar desde backup
+                try:
+                    shutil.move(ruta_backup, ruta_excel_actual)
+                except:
+                    pass
+                messagebox.showerror("Error", f"Error al copiar plantilla base: {str(e)}. El archivo original ha sido restaurado.")
+                return
+
+            # Refrescar toda la UI para reflejar el reinicio inmediatamente
+            self._actualizar_lista_productos()
+            self._cargar_historial_rapido()
+            self._mostrar_todo_historial()
+            self.combo_filtro.set("")
+            self.combo_producto.set("")
+            self.combo_tipo.set("")
+            self.entry_cantidad.delete(0, tk.END)
+            self.entry_motivo.delete(0, tk.END)
+            self.combo_responsable.current(0)
+
+            messagebox.showinfo("Éxito", f"Periodo reiniciado correctamente.\n\nBackup guardado en: {ruta_backup}")
 
         except Exception as e:
-            messagebox.showerror("Error", f"Ocurrió un error: {str(e)}")
+            messagebox.showerror("Error", f"Ocurrió un error inesperado: {str(e)}")
 
     #FIN BACKUP 
 
