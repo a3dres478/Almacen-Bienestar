@@ -304,20 +304,18 @@ class GestorAlmacen:
             fecha = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             mes = datetime.now().strftime("%m")
             año = datetime.now().strftime("%Y")
-            
+            #CAMBIOS DADOS
             ws_movimientos.append([
                 id_movimiento,
-                fecha,
-                mes,
-                año,
-                tipo_movimiento,
                 id_producto,
                 nombre_producto,
+                tipo_movimiento,
                 cantidad,
                 stock_anterior,
                 stock_nuevo,
                 motivo,
-                responsable
+                responsable,
+                fecha
             ])
             
             # Actualizar stock en productos
@@ -340,9 +338,10 @@ class GestorAlmacen:
             movimientos = []
             for fila in ws.iter_rows(min_row=2, max_row=ws.max_row, values_only=True):
                 if fila[0]:  # Si hay ID
-                    if id_producto is None or fila[5] == id_producto:
+
+                    if id_producto is None or fila[1] == id_producto:
                         # Extraer mes y año de la fecha
-                        fecha_str = str(fila[1]) if fila[1] else ""
+                        fecha_str = str(fila[9]) if fila[9] else ""
                         mes = ""
                         año = ""
                         if fecha_str and len(fecha_str) >= 10:  # Formato YYYY-MM-DD
@@ -351,20 +350,20 @@ class GestorAlmacen:
                                 mes = fecha_str[5:7]
                             except:
                                 pass
-                        
+                        # CAMBIOS DADOS
                         movimientos.append({
                             "id": fila[0],
-                            "fecha": fila[1],
+                            "fecha": fila[9],
                             "mes": mes,
                             "año": año,
-                            "tipo": fila[4],
-                            "id_producto": fila[5],
-                            "nombre_producto": fila[6],
-                            "cantidad": fila[7],
-                            "stock_anterior": fila[8],
-                            "stock_nuevo": fila[9],
-                            "motivo": fila[10],
-                            "responsable": fila[11]
+                            "tipo": fila[3],
+                            "id_producto": fila[1],
+                            "nombre_producto": fila[2],
+                            "cantidad": fila[4],
+                            "stock_anterior": fila[5],
+                            "stock_nuevo": fila[6],
+                            "motivo": fila[7],
+                            "responsable": fila[8]
                         })
             
             wb.close()
@@ -481,7 +480,8 @@ class GestorAlmacen:
                     for fila_mov in ws_movimientos.iter_rows(min_row=2, max_row=ws_movimientos.max_row, values_only=True):
                         if fila_mov[5] == id_prod:  # ID del producto (posición 5)
                             cantidad_mov += 1
-                            cantidad = fila_mov[7]  # Cantidad (posición 7)
+                            #CAMBIOS
+                            cantidad = fila_mov[4] or 0 # Cantidad (posición 7)
                             if fila_mov[4].lower() == "entrada":  # Tipo (posición 4)
                                 entrada_total += cantidad
                             else:
